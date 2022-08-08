@@ -32,7 +32,7 @@ export const createSaleorClient = ({
 
     if (csrfToken && authPluginId) {
       authSDK.refreshExternalToken(true);
-    } else if (csrfToken) {
+    } else {
       authSDK.refreshToken(true);
     }
   }
