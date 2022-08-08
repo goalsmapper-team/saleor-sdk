@@ -259,11 +259,11 @@ export const auth = ({
     });
 
   const refreshToken: AuthSDK["refreshToken"] = (includeUser = false) => {
-    const csrfToken = storage.getCSRFToken();
+    const csrfToken = storage.getCSRFToken() || "";
 
-    if (!csrfToken) {
-      throw Error("csrfToken not present");
-    }
+    // if (!csrfToken) {
+    //   throw Error("csrfToken not present");
+    // }
 
     if (includeUser) {
       return client.mutate<

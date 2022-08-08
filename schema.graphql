@@ -5,27 +5,39 @@ schema {
 
 type AccountAddressCreate {
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
   address: Address
 }
 
 type AccountAddressDelete {
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
   address: Address
 }
 
 type AccountAddressUpdate {
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
   address: Address
 }
 
 type AccountDelete {
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
   user: User
 }
@@ -70,6 +82,7 @@ enum AccountErrorCode {
   JWT_INVALID_CSRF_TOKEN
   CHANNEL_INACTIVE
   MISSING_CHANNEL_SLUG
+  JWT_GM_INVALID_TOKEN
 }
 
 input AccountInput {
@@ -82,7 +95,10 @@ input AccountInput {
 
 type AccountRegister {
   requiresConfirmation: Boolean
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
   user: User
 }
@@ -97,20 +113,39 @@ input AccountRegisterInput {
 }
 
 type AccountRequestDeletion {
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
 type AccountSetDefaultAddress {
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
 type AccountUpdate {
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
   user: User
+}
+
+type AddClientsCheckout {
+  checkoutClients: CheckoutClientType!
+  checkoutClientErrorCodes: [CheckoutClientError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [CheckoutClientError!]!
+  checkoutClient: CheckoutClientType
 }
 
 type Address implements Node {
@@ -126,20 +161,27 @@ type Address implements Node {
   country: CountryDisplay!
   countryArea: String!
   phone: String
+  unitNumber: String!
   isDefaultShippingAddress: Boolean
   isDefaultBillingAddress: Boolean
 }
 
 type AddressCreate {
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
   address: Address
 }
 
 type AddressDelete {
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
   address: Address
 }
@@ -156,11 +198,15 @@ input AddressInput {
   country: CountryCode
   countryArea: String
   phone: String
+  unitNumber: String
 }
 
 type AddressSetDefault {
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
@@ -171,7 +217,10 @@ enum AddressTypeEnum {
 
 type AddressUpdate {
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
   address: Address
 }
@@ -194,6 +243,11 @@ type AddressValidationData {
   postalCodeMatchers: [String]
   postalCodeExamples: [String]
   postalCodePrefix: String
+}
+
+input AgeRangeInput {
+  gte: Int!
+  lte: Int!
 }
 
 type Allocation implements Node {
@@ -225,7 +279,10 @@ type App implements Node & ObjectWithMetadata {
 }
 
 type AppActivate {
-  appErrors: [AppError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  appErrors: [AppError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AppError!]!
   app: App
 }
@@ -243,25 +300,37 @@ type AppCountableEdge {
 
 type AppCreate {
   authToken: String
-  appErrors: [AppError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  appErrors: [AppError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AppError!]!
   app: App
 }
 
 type AppDeactivate {
-  appErrors: [AppError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  appErrors: [AppError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AppError!]!
   app: App
 }
 
 type AppDelete {
-  appErrors: [AppError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  appErrors: [AppError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AppError!]!
   app: App
 }
 
 type AppDeleteFailedInstallation {
-  appErrors: [AppError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  appErrors: [AppError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AppError!]!
   appInstallation: AppInstallation
 }
@@ -291,7 +360,10 @@ enum AppErrorCode {
 
 type AppFetchManifest {
   manifest: Manifest
-  appErrors: [AppError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  appErrors: [AppError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AppError!]!
 }
 
@@ -307,7 +379,10 @@ input AppInput {
 }
 
 type AppInstall {
-  appErrors: [AppError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  appErrors: [AppError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AppError!]!
   appInstallation: AppInstallation
 }
@@ -330,7 +405,10 @@ type AppInstallation implements Node & Job {
 }
 
 type AppRetryInstall {
-  appErrors: [AppError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  appErrors: [AppError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AppError!]!
   appInstallation: AppInstallation
 }
@@ -353,13 +431,19 @@ type AppToken implements Node {
 
 type AppTokenCreate {
   authToken: String
-  appErrors: [AppError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  appErrors: [AppError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AppError!]!
   appToken: AppToken
 }
 
 type AppTokenDelete {
-  appErrors: [AppError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  appErrors: [AppError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AppError!]!
   appToken: AppToken
 }
@@ -371,7 +455,10 @@ input AppTokenInput {
 
 type AppTokenVerify {
   valid: Boolean!
-  appErrors: [AppError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  appErrors: [AppError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AppError!]!
 }
 
@@ -381,7 +468,10 @@ enum AppTypeEnum {
 }
 
 type AppUpdate {
-  appErrors: [AppError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  appErrors: [AppError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AppError!]!
   app: App
 }
@@ -397,14 +487,27 @@ enum AreaUnitsEnum {
 
 type AssignNavigation {
   menu: Menu
-  menuErrors: [MenuError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  menuErrors: [MenuError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [MenuError!]!
 }
 
 type Attribute implements Node & ObjectWithMetadata {
   id: ID!
-  productTypes(before: String, after: String, first: Int, last: Int): ProductTypeCountableConnection!
-  productVariantTypes(before: String, after: String, first: Int, last: Int): ProductTypeCountableConnection!
+  productTypes(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductTypeCountableConnection!
+  productVariantTypes(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductTypeCountableConnection!
   privateMetadata: [MetadataItem]!
   metadata: [MetadataItem]!
   inputType: AttributeInputTypeEnum
@@ -413,7 +516,14 @@ type Attribute implements Node & ObjectWithMetadata {
   slug: String
   type: AttributeTypeEnum
   unit: MeasurementUnitsEnum
-  choices(sortBy: AttributeChoicesSortingInput, filter: AttributeValueFilterInput, before: String, after: String, first: Int, last: Int): AttributeValueCountableConnection
+  choices(
+    sortBy: AttributeChoicesSortingInput
+    filter: AttributeValueFilterInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): AttributeValueCountableConnection
   valueRequired: Boolean!
   visibleInStorefront: Boolean!
   filterableInStorefront: Boolean!
@@ -421,11 +531,15 @@ type Attribute implements Node & ObjectWithMetadata {
   availableInGrid: Boolean!
   translation(languageCode: LanguageCodeEnum!): AttributeTranslation
   storefrontSearchPosition: Int!
+  withChoices: Boolean!
 }
 
 type AttributeBulkDelete {
   count: Int!
-  attributeErrors: [AttributeError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  attributeErrors: [AttributeError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AttributeError!]!
 }
 
@@ -452,7 +566,10 @@ type AttributeCountableEdge {
 
 type AttributeCreate {
   attribute: Attribute
-  attributeErrors: [AttributeError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  attributeErrors: [AttributeError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AttributeError!]!
 }
 
@@ -474,7 +591,10 @@ input AttributeCreateInput {
 }
 
 type AttributeDelete {
-  attributeErrors: [AttributeError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  attributeErrors: [AttributeError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AttributeError!]!
   attribute: Attribute
 }
@@ -512,12 +632,15 @@ input AttributeFilterInput {
   type: AttributeTypeEnum
   inCollection: ID
   inCategory: ID
+  channel: String
 }
 
 input AttributeInput {
   slug: String!
   values: [String]
   valuesRange: IntRangeInput
+  dateTime: DateTimeRangeInput
+  date: DateRangeInput
   boolean: Boolean
 }
 
@@ -529,11 +652,16 @@ enum AttributeInputTypeEnum {
   NUMERIC
   RICH_TEXT
   BOOLEAN
+  DATE
+  DATE_TIME
 }
 
 type AttributeReorderValues {
   attribute: Attribute
-  attributeErrors: [AttributeError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  attributeErrors: [AttributeError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AttributeError!]!
 }
 
@@ -558,11 +686,17 @@ type AttributeTranslatableContent implements Node {
   id: ID!
   name: String!
   translation(languageCode: LanguageCodeEnum!): AttributeTranslation
-  attribute: Attribute @deprecated(reason: "Will be removed in Saleor 4.0. Get model fields from the root level.")
+  attribute: Attribute
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Get model fields from the root level."
+    )
 }
 
 type AttributeTranslate {
-  translationErrors: [TranslationError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  translationErrors: [TranslationError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [TranslationError!]!
   attribute: Attribute
 }
@@ -580,7 +714,10 @@ enum AttributeTypeEnum {
 
 type AttributeUpdate {
   attribute: Attribute
-  attributeErrors: [AttributeError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  attributeErrors: [AttributeError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AttributeError!]!
 }
 
@@ -610,11 +747,16 @@ type AttributeValue implements Node {
   file: File
   richText: JSONString
   boolean: Boolean
+  date: Date
+  dateTime: DateTime
 }
 
 type AttributeValueBulkDelete {
   count: Int!
-  attributeErrors: [AttributeError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  attributeErrors: [AttributeError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AttributeError!]!
 }
 
@@ -631,7 +773,10 @@ type AttributeValueCountableEdge {
 
 type AttributeValueCreate {
   attribute: Attribute
-  attributeErrors: [AttributeError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  attributeErrors: [AttributeError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AttributeError!]!
   attributeValue: AttributeValue
 }
@@ -644,7 +789,10 @@ input AttributeValueCreateInput {
 
 type AttributeValueDelete {
   attribute: Attribute
-  attributeErrors: [AttributeError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  attributeErrors: [AttributeError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AttributeError!]!
   attributeValue: AttributeValue
 }
@@ -661,17 +809,26 @@ input AttributeValueInput {
   references: [ID!]
   richText: JSONString
   boolean: Boolean
+  date: Date
+  dateTime: DateTime
 }
 
 type AttributeValueTranslatableContent implements Node {
   id: ID!
   name: String!
+  richText: JSONString
   translation(languageCode: LanguageCodeEnum!): AttributeValueTranslation
-  attributeValue: AttributeValue @deprecated(reason: "Will be removed in Saleor 4.0. Get model fields from the root level.")
+  attributeValue: AttributeValue
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Get model fields from the root level."
+    )
 }
 
 type AttributeValueTranslate {
-  translationErrors: [TranslationError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  translationErrors: [TranslationError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [TranslationError!]!
   attributeValue: AttributeValue
 }
@@ -690,14 +847,83 @@ input AttributeValueTranslationInput {
 
 type AttributeValueUpdate {
   attribute: Attribute
-  attributeErrors: [AttributeError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  attributeErrors: [AttributeError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AttributeError!]!
   attributeValue: AttributeValue
 }
 
 input BulkAttributeValueInput {
   id: ID
-  values: [String!]!
+  values: [String!]
+  boolean: Boolean
+}
+
+type BulkCheckoutComplete {
+  orders: [Order]
+  bulkOrderReference: BulkOrderReference
+  confirmationNeeded: Boolean!
+  confirmationData: JSONString
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [CheckoutError!]!
+}
+
+input BulkCheckoutCreateInput {
+  channel: String
+  lines: [ProfileCheckoutLineInput]
+  shippingAddress: AddressInput
+  billingAddress: AddressInput
+  languageCode: LanguageCodeEnum
+  profileIds: [ID]
+}
+
+input BulkClientCreateInput {
+  clients: [ClientInput]
+}
+
+type BulkClientsCreate {
+  clients: [GoalsMapperClientType]
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [AccountError!]!
+  user: User
+}
+
+type BulkOrderReference implements Node {
+  id: ID!
+  created: DateTime!
+  payment: Payment
+  orders(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): OrderCountableConnection!
+  user: User!
+  number: Int
+  ordersSentToClients: Int
+  ordersSentToAdvisor: Int
+  itemsSentToClients: Int
+  itemsSentToAdvisor: Int
+  gmCoinsAwarded: Int
+}
+
+type BulkOrderReferenceCountableConnection {
+  pageInfo: PageInfo!
+  edges: [BulkOrderReferenceCountableEdge!]!
+  totalCount: Int
+}
+
+type BulkOrderReferenceCountableEdge {
+  node: BulkOrderReference!
+  cursor: String!
 }
 
 type BulkProductError {
@@ -737,17 +963,40 @@ type Category implements Node & ObjectWithMetadata {
   level: Int!
   privateMetadata: [MetadataItem]!
   metadata: [MetadataItem]!
-  descriptionJson: JSONString @deprecated(reason: "Will be removed in Saleor 4.0. Use the `description` field instead.")
-  ancestors(before: String, after: String, first: Int, last: Int): CategoryCountableConnection
-  products(channel: String, before: String, after: String, first: Int, last: Int): ProductCountableConnection
-  children(before: String, after: String, first: Int, last: Int): CategoryCountableConnection
+  descriptionJson: JSONString
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `description` field instead."
+    )
+  ancestors(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): CategoryCountableConnection
+  products(
+    channel: String
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductProductCountableConnection
+  children(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): CategoryCountableConnection
   backgroundImage(size: Int): Image
+  icon(size: Int): Image
   translation(languageCode: LanguageCodeEnum!): CategoryTranslation
 }
 
 type CategoryBulkDelete {
   count: Int!
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
@@ -763,13 +1012,19 @@ type CategoryCountableEdge {
 }
 
 type CategoryCreate {
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
   category: Category
 }
 
 type CategoryDelete {
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
   category: Category
 }
@@ -778,6 +1033,7 @@ input CategoryFilterInput {
   search: String
   metadata: [MetadataFilter]
   ids: [ID]
+  productCountGte: Int
 }
 
 input CategoryInput {
@@ -787,6 +1043,8 @@ input CategoryInput {
   seo: SeoInput
   backgroundImage: Upload
   backgroundImageAlt: String
+  icon: Upload
+  iconAlt: String
 }
 
 enum CategorySortField {
@@ -797,6 +1055,7 @@ enum CategorySortField {
 
 input CategorySortingInput {
   direction: OrderDirection!
+  channel: String
   field: CategorySortField!
 }
 
@@ -806,13 +1065,22 @@ type CategoryTranslatableContent implements Node {
   seoDescription: String
   name: String!
   description: JSONString
-  descriptionJson: JSONString @deprecated(reason: "Will be removed in Saleor 4.0. Use the `description` field instead.")
+  descriptionJson: JSONString
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `description` field instead."
+    )
   translation(languageCode: LanguageCodeEnum!): CategoryTranslation
-  category: Category @deprecated(reason: "Will be removed in Saleor 4.0. Get model fields from the root level.")
+  category: Category
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Get model fields from the root level."
+    )
 }
 
 type CategoryTranslate {
-  translationErrors: [TranslationError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  translationErrors: [TranslationError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [TranslationError!]!
   category: Category
 }
@@ -824,11 +1092,17 @@ type CategoryTranslation implements Node {
   name: String
   description: JSONString
   language: LanguageDisplay!
-  descriptionJson: JSONString @deprecated(reason: "Will be removed in Saleor 4.0. Use the `description` field instead.")
+  descriptionJson: JSONString
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `description` field instead."
+    )
 }
 
 type CategoryUpdate {
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
   category: Category
 }
@@ -844,12 +1118,18 @@ type Channel implements Node {
 
 type ChannelActivate {
   channel: Channel
-  channelErrors: [ChannelError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  channelErrors: [ChannelError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ChannelError!]!
 }
 
 type ChannelCreate {
-  channelErrors: [ChannelError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  channelErrors: [ChannelError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ChannelError!]!
   channel: Channel
 }
@@ -864,12 +1144,18 @@ input ChannelCreateInput {
 
 type ChannelDeactivate {
   channel: Channel
-  channelErrors: [ChannelError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  channelErrors: [ChannelError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ChannelError!]!
 }
 
 type ChannelDelete {
-  channelErrors: [ChannelError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  channelErrors: [ChannelError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ChannelError!]!
   channel: Channel
 }
@@ -898,7 +1184,10 @@ enum ChannelErrorCode {
 }
 
 type ChannelUpdate {
-  channelErrors: [ChannelError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  channelErrors: [ChannelError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ChannelError!]!
   channel: Channel
 }
@@ -924,6 +1213,8 @@ type Checkout implements Node & ObjectWithMetadata {
   translatedDiscountName: String
   voucherCode: String
   giftCards: [GiftCard]
+  advisor: User
+  shipToAdvisor: Boolean!
   id: ID!
   privateMetadata: [MetadataItem]!
   metadata: [MetadataItem]!
@@ -939,25 +1230,81 @@ type Checkout implements Node & ObjectWithMetadata {
   token: UUID!
   totalPrice: TaxedMoney
   languageCode: LanguageCodeEnum!
+  profile: GoalsMapperProfileType
 }
 
 type CheckoutAddPromoCode {
   checkout: Checkout
-  checkoutErrors: [CheckoutError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CheckoutError!]!
 }
 
 type CheckoutBillingAddressUpdate {
   checkout: Checkout
-  checkoutErrors: [CheckoutError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CheckoutError!]!
+}
+
+type CheckoutBulkCreate {
+  created: Boolean
+  checkouts: [Checkout]
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [CheckoutError!]!
+  checkout: Checkout
+}
+
+type CheckoutClientError {
+  field: String
+  message: String
+  code: CheckoutClientErrorCodeEnum!
+}
+
+enum CheckoutClientErrorCodeEnum {
+  GRAPHQL_ERROR
+  INVALID
+  NOT_FOUND
+  REQUIRED
+}
+
+input CheckoutClientInput {
+  clients: [ID]
+}
+
+type CheckoutClientType implements Node {
+  id: ID!
+  updated: DateTime!
+  user: User
+  clients: [GoalsMapperClientType]
+}
+
+type CheckoutClientTypeCountableConnection {
+  pageInfo: PageInfo!
+  edges: [CheckoutClientTypeCountableEdge!]!
+  totalCount: Int
+}
+
+type CheckoutClientTypeCountableEdge {
+  node: CheckoutClientType!
+  cursor: String!
 }
 
 type CheckoutComplete {
   order: Order
   confirmationNeeded: Boolean!
   confirmationData: JSONString
-  checkoutErrors: [CheckoutError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CheckoutError!]!
 }
 
@@ -974,35 +1321,58 @@ type CheckoutCountableEdge {
 
 type CheckoutCreate {
   created: Boolean
-  checkoutErrors: [CheckoutError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CheckoutError!]!
   checkout: Checkout
 }
 
 input CheckoutCreateInput {
   channel: String
-  lines: [CheckoutLineInput]!
+  lines: [CheckoutLineWithPreferencesInput]!
   email: String
   shippingAddress: AddressInput
   billingAddress: AddressInput
   languageCode: LanguageCodeEnum
+  profileId: ID
+  shipToAdvisor: Boolean
 }
 
 type CheckoutCustomerAttach {
   checkout: Checkout
-  checkoutErrors: [CheckoutError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CheckoutError!]!
 }
 
 type CheckoutCustomerDetach {
   checkout: Checkout
-  checkoutErrors: [CheckoutError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [CheckoutError!]!
+}
+
+type CheckoutDelete {
+  deleted: Boolean
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CheckoutError!]!
 }
 
 type CheckoutEmailUpdate {
   checkout: Checkout
-  checkoutErrors: [CheckoutError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CheckoutError!]!
 }
 
@@ -1038,11 +1408,15 @@ enum CheckoutErrorCode {
   MISSING_CHANNEL_SLUG
   CHANNEL_INACTIVE
   UNAVAILABLE_VARIANT_IN_CHANNEL
+  ORDER_EXISTS
 }
 
 type CheckoutLanguageCodeUpdate {
   checkout: Checkout
-  checkoutErrors: [CheckoutError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CheckoutError!]!
 }
 
@@ -1052,6 +1426,7 @@ type CheckoutLine implements Node {
   quantity: Int!
   totalPrice: TaxedMoney
   requiresShipping: Boolean
+  preferences: [CheckoutLinePreferenceAssignedValue]
 }
 
 type CheckoutLineCountableConnection {
@@ -1067,55 +1442,163 @@ type CheckoutLineCountableEdge {
 
 type CheckoutLineDelete {
   checkout: Checkout
-  checkoutErrors: [CheckoutError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CheckoutError!]!
 }
 
-input CheckoutLineInput {
+type CheckoutLinePreferenceAssignedValue implements Node {
+  id: ID!
+  checkoutLine: CheckoutLine
+  attribute: Attribute
+  value: String
+}
+
+input CheckoutLineWithPreferencesInput {
   quantity: Int!
   variantId: ID!
+  preferences: [CheckoutPreference]
 }
 
 type CheckoutLinesAdd {
   checkout: Checkout
-  checkoutErrors: [CheckoutError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CheckoutError!]!
 }
 
 type CheckoutLinesUpdate {
   checkout: Checkout
-  checkoutErrors: [CheckoutError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CheckoutError!]!
 }
 
 type CheckoutPaymentCreate {
   checkout: Checkout
   payment: Payment
-  paymentErrors: [PaymentError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  paymentErrors: [PaymentError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PaymentError!]!
+}
+
+input CheckoutPreference {
+  attributeId: ID
+  preferenceValue: String!
 }
 
 type CheckoutRemovePromoCode {
   checkout: Checkout
-  checkoutErrors: [CheckoutError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CheckoutError!]!
 }
 
 type CheckoutShippingAddressUpdate {
   checkout: Checkout
-  checkoutErrors: [CheckoutError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CheckoutError!]!
 }
 
 type CheckoutShippingMethodUpdate {
   checkout: Checkout
-  checkoutErrors: [CheckoutError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [CheckoutError!]!
+}
+
+type CheckoutUpdateShipToAdvisor {
+  checkout: Checkout
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CheckoutError!]!
 }
 
 type ChoiceValue {
   raw: String
   verbose: String
+}
+
+type ClearClientsCheckout {
+  checkoutClients: CheckoutClientType!
+  checkoutClientErrorCodes: [CheckoutClientError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [CheckoutClientError!]!
+  checkoutClient: CheckoutClientType
+}
+
+type ClientCreate {
+  client: GoalsMapperClientType
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [AccountError!]!
+  user: User
+}
+
+type ClientDelete {
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [AccountError!]!
+  user: User
+}
+
+input ClientFilterInput {
+  search: String
+}
+
+input ClientInput {
+  firstName: String
+  lastName: String
+  email: String
+  defaultShippingAddress: AddressInput
+  salutation: ProfileSalutationTypeEnum
+  gender: ProfileGenderTypeEnum
+  dateOfBirth: Date
+  maritalStatus: ProfileMaritalStatusEnum
+}
+
+type ClientTagType implements Node {
+  id: ID!
+  title: String
+  clientTags(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): GoalsMapperClientTypeCountableConnection!
+}
+
+type ClientUpdate {
+  client: GoalsMapperClientType
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [AccountError!]!
+  user: User
 }
 
 type Collection implements Node & ObjectWithMetadata {
@@ -1127,8 +1610,27 @@ type Collection implements Node & ObjectWithMetadata {
   slug: String!
   privateMetadata: [MetadataItem]!
   metadata: [MetadataItem]!
-  descriptionJson: JSONString @deprecated(reason: "Will be removed in Saleor 4.0. Use the `description` field instead.")
-  products(filter: ProductFilterInput, sortBy: ProductOrder, before: String, after: String, first: Int, last: Int): ProductCountableConnection
+  descriptionJson: JSONString
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `description` field instead."
+    )
+  categories(
+    filter: CategoryFilterInput
+    sortBy: CategorySortingInput
+    level: Int
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): CategoryCountableConnection
+  products(
+    filter: ProductFilterInput
+    sortBy: ProductOrder
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductProductCountableConnection
   backgroundImage(size: Int): Image
   translation(languageCode: LanguageCodeEnum!): CollectionTranslation
   channelListings: [CollectionChannelListing!]
@@ -1136,13 +1638,19 @@ type Collection implements Node & ObjectWithMetadata {
 
 type CollectionAddProducts {
   collection: Collection
-  collectionErrors: [CollectionError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  collectionErrors: [CollectionError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CollectionError!]!
 }
 
 type CollectionBulkDelete {
   count: Int!
-  collectionErrors: [CollectionError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  collectionErrors: [CollectionError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CollectionError!]!
 }
 
@@ -1164,7 +1672,10 @@ type CollectionChannelListingError {
 
 type CollectionChannelListingUpdate {
   collection: Collection
-  collectionChannelListingErrors: [CollectionChannelListingError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  collectionChannelListingErrors: [CollectionChannelListingError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CollectionChannelListingError!]!
 }
 
@@ -1185,7 +1696,10 @@ type CollectionCountableEdge {
 }
 
 type CollectionCreate {
-  collectionErrors: [CollectionError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  collectionErrors: [CollectionError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CollectionError!]!
   collection: Collection
 }
@@ -1203,7 +1717,10 @@ input CollectionCreateInput {
 }
 
 type CollectionDelete {
-  collectionErrors: [CollectionError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  collectionErrors: [CollectionError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CollectionError!]!
   collection: Collection
 }
@@ -1230,6 +1747,7 @@ input CollectionFilterInput {
   search: String
   metadata: [MetadataFilter]
   ids: [ID]
+  channel: String
 }
 
 input CollectionInput {
@@ -1250,13 +1768,19 @@ enum CollectionPublished {
 
 type CollectionRemoveProducts {
   collection: Collection
-  collectionErrors: [CollectionError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  collectionErrors: [CollectionError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CollectionError!]!
 }
 
 type CollectionReorderProducts {
   collection: Collection
-  collectionErrors: [CollectionError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  collectionErrors: [CollectionError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CollectionError!]!
 }
 
@@ -1269,6 +1793,7 @@ enum CollectionSortField {
 
 input CollectionSortingInput {
   direction: OrderDirection!
+  channel: String
   field: CollectionSortField!
 }
 
@@ -1278,13 +1803,22 @@ type CollectionTranslatableContent implements Node {
   seoDescription: String
   name: String!
   description: JSONString
-  descriptionJson: JSONString @deprecated(reason: "Will be removed in Saleor 4.0. Use the `description` field instead.")
+  descriptionJson: JSONString
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `description` field instead."
+    )
   translation(languageCode: LanguageCodeEnum!): CollectionTranslation
-  collection: Collection @deprecated(reason: "Will be removed in Saleor 4.0. Get model fields from the root level.")
+  collection: Collection
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Get model fields from the root level."
+    )
 }
 
 type CollectionTranslate {
-  translationErrors: [TranslationError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  translationErrors: [TranslationError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [TranslationError!]!
   collection: Collection
 }
@@ -1296,11 +1830,17 @@ type CollectionTranslation implements Node {
   name: String
   description: JSONString
   language: LanguageDisplay!
-  descriptionJson: JSONString @deprecated(reason: "Will be removed in Saleor 4.0. Use the `description` field instead.")
+  descriptionJson: JSONString
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `description` field instead."
+    )
 }
 
 type CollectionUpdate {
-  collectionErrors: [CollectionError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  collectionErrors: [CollectionError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [CollectionError!]!
   collection: Collection
 }
@@ -1330,13 +1870,19 @@ enum ConfigurationTypeFieldEnum {
 
 type ConfirmAccount {
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
 type ConfirmEmailChange {
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
@@ -1597,6 +2143,16 @@ type CountryDisplay {
   code: String!
   country: String!
   vat: VAT
+  name: String
+}
+
+type CreateCheckoutLinePreference {
+  preference: CheckoutLinePreferenceAssignedValue
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [CheckoutError!]!
 }
 
 type CreateToken {
@@ -1604,7 +2160,10 @@ type CreateToken {
   refreshToken: String
   csrfToken: String
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
@@ -1618,18 +2177,27 @@ type CreditCard {
 
 type CustomerBulkDelete {
   count: Int!
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
 type CustomerCreate {
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
   user: User
 }
 
 type CustomerDelete {
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
   user: User
 }
@@ -1682,7 +2250,10 @@ input CustomerInput {
 }
 
 type CustomerUpdate {
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
   user: User
 }
@@ -1702,20 +2273,88 @@ input DateTimeRangeInput {
 }
 
 type DeactivateAllUserTokens {
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
 type DeleteMetadata {
-  metadataErrors: [MetadataError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  metadataErrors: [MetadataError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [MetadataError!]!
   item: ObjectWithMetadata
 }
 
 type DeletePrivateMetadata {
-  metadataErrors: [MetadataError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  metadataErrors: [MetadataError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [MetadataError!]!
   item: ObjectWithMetadata
+}
+
+type DeliveryZoneCreate {
+  deliveryZone: DeliveryZoneType
+  deliveryZoneErrors: [DeliveryZoneError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [DeliveryZoneError!]!
+}
+
+type DeliveryZoneError {
+  field: String
+  message: String
+  code: DeliveryZoneErrorCodeEnum!
+}
+
+enum DeliveryZoneErrorCodeEnum {
+  GRAPHQL_ERROR
+  INVALID
+  NOT_FOUND
+  REQUIRED
+}
+
+input DeliveryZoneFilterInput {
+  addresses: [ID]
+}
+
+input DeliveryZoneInput {
+  merchantId: ID!
+  type: DeliveryZoneTypeEnum
+  values: [String]
+  country: CountryCode
+}
+
+type DeliveryZoneType implements Node {
+  id: ID!
+  merchant: MerchantType
+  type: DeliveryZoneTypeEnum
+  values: [String]
+  country: CountryDisplay!
+}
+
+type DeliveryZoneTypeCountableConnection {
+  pageInfo: PageInfo!
+  edges: [DeliveryZoneTypeCountableEdge!]!
+  totalCount: Int
+}
+
+type DeliveryZoneTypeCountableEdge {
+  node: DeliveryZoneType!
+  cursor: String!
+}
+
+enum DeliveryZoneTypeEnum {
+  STATE
+  POSTAL_CODE
+  CITY
+  COUNTRY
 }
 
 type DigitalContent implements Node & ObjectWithMetadata {
@@ -1745,13 +2384,19 @@ type DigitalContentCountableEdge {
 type DigitalContentCreate {
   variant: ProductVariant
   content: DigitalContent
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
 type DigitalContentDelete {
   variant: ProductVariant
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
@@ -1765,7 +2410,10 @@ input DigitalContentInput {
 type DigitalContentUpdate {
   variant: ProductVariant
   content: DigitalContent
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
@@ -1787,7 +2435,10 @@ type DigitalContentUrl implements Node {
 }
 
 type DigitalContentUrlCreate {
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
   digitalContentUrl: DigitalContentUrl
 }
@@ -1843,18 +2494,27 @@ type Domain {
 
 type DraftOrderBulkDelete {
   count: Int!
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
 type DraftOrderComplete {
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
 type DraftOrderCreate {
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
   order: Order
 }
@@ -1874,7 +2534,10 @@ input DraftOrderCreateInput {
 }
 
 type DraftOrderDelete {
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
   order: Order
 }
@@ -1894,12 +2557,18 @@ input DraftOrderInput {
 
 type DraftOrderLinesBulkDelete {
   count: Int!
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
 type DraftOrderUpdate {
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
   order: Order
 }
@@ -1986,7 +2655,10 @@ input ExportInfoInput {
 
 type ExportProducts {
   exportFile: ExportFile
-  exportErrors: [ExportError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  exportErrors: [ExportError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ExportError!]!
 }
 
@@ -2011,13 +2683,19 @@ type ExternalAuthentication {
 
 type ExternalAuthenticationUrl {
   authenticationData: JSONString
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
 type ExternalLogout {
   logoutData: JSONString
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
@@ -2026,7 +2704,10 @@ type ExternalObtainAccessTokens {
   refreshToken: String
   csrfToken: String
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
@@ -2035,7 +2716,10 @@ type ExternalRefresh {
   refreshToken: String
   csrfToken: String
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
@@ -2043,7 +2727,10 @@ type ExternalVerify {
   user: User
   isValid: Boolean!
   verifyData: JSONString
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
@@ -2059,7 +2746,10 @@ enum FileTypesEnum {
 
 type FileUpload {
   uploadedFile: File
-  uploadErrors: [UploadError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  uploadErrors: [UploadError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [UploadError!]!
 }
 
@@ -2079,7 +2769,10 @@ type Fulfillment implements Node & ObjectWithMetadata {
 type FulfillmentCancel {
   fulfillment: Fulfillment
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
@@ -2096,7 +2789,10 @@ type FulfillmentLine implements Node {
 type FulfillmentRefundProducts {
   fulfillment: Fulfillment
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
@@ -2105,7 +2801,10 @@ type FulfillmentReturnProducts {
   replaceFulfillment: Fulfillment
   order: Order
   replaceOrder: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
@@ -2121,7 +2820,10 @@ enum FulfillmentStatus {
 type FulfillmentUpdateTracking {
   fulfillment: Fulfillment
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
@@ -2153,7 +2855,10 @@ type GiftCard implements Node {
 
 type GiftCardActivate {
   giftCard: GiftCard
-  giftCardErrors: [GiftCardError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  giftCardErrors: [GiftCardError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [GiftCardError!]!
 }
 
@@ -2169,7 +2874,10 @@ type GiftCardCountableEdge {
 }
 
 type GiftCardCreate {
-  giftCardErrors: [GiftCardError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  giftCardErrors: [GiftCardError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [GiftCardError!]!
   giftCard: GiftCard
 }
@@ -2184,7 +2892,10 @@ input GiftCardCreateInput {
 
 type GiftCardDeactivate {
   giftCard: GiftCard
-  giftCardErrors: [GiftCardError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  giftCardErrors: [GiftCardError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [GiftCardError!]!
 }
 
@@ -2204,7 +2915,10 @@ enum GiftCardErrorCode {
 }
 
 type GiftCardUpdate {
-  giftCardErrors: [GiftCardError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  giftCardErrors: [GiftCardError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [GiftCardError!]!
   giftCard: GiftCard
 }
@@ -2214,6 +2928,86 @@ input GiftCardUpdateInput {
   endDate: Date
   balance: PositiveDecimal
   userEmail: String
+}
+
+input GoalsMapperClientFilterInput {
+  search: String
+  age: AgeRangeInput
+  goalsmapperClientIds: [Int]
+  maritalStatus: ProfileMaritalStatusEnum
+  dateOfBirth: ProfileDateOfBirthFilterEnum
+  gender: [ProfileGenderTypeEnum]
+}
+
+type GoalsMapperClientType implements Node {
+  id: ID!
+  defunct: Boolean!
+  gmClientId: Int
+  isJointPlanning: Boolean
+  person: GoalsMapperProfileType!
+  spouse: GoalsMapperProfileType
+  ownership: OwnershipClientTypeEnum
+  lastUpdatedAge: Int
+  label: String
+  labelTier: Int
+  tags: [ClientTagType]
+  user: User
+  checkoutClients(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): CheckoutClientTypeCountableConnection!
+}
+
+type GoalsMapperClientTypeCountableConnection {
+  pageInfo: PageInfo!
+  edges: [GoalsMapperClientTypeCountableEdge!]!
+  totalCount: Int
+}
+
+type GoalsMapperClientTypeCountableEdge {
+  node: GoalsMapperClientType!
+  cursor: String!
+}
+
+type GoalsMapperLogin {
+  token: String
+  refreshToken: String
+  csrfToken: String
+  user: User
+  taskId: UUID
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [AccountError!]!
+}
+
+type GoalsMapperProfileType implements Node {
+  id: ID!
+  defunct: Boolean!
+  gmProfileId: Int
+  name: String
+  fullName: String
+  salutation: ProfileSalutationTypeEnum
+  gender: ProfileGenderTypeEnum
+  dateOfBirth: DateTime
+  email: String
+  addresses: [Address]
+  homeContact: String
+  officeContact: String
+  mobileContact: String
+  maritalStatus: ProfileMaritalStatusEnum
+  age: Int!
+  person: GoalsMapperClientType!
+  spouse(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): GoalsMapperClientTypeCountableConnection!
+  customer: User
 }
 
 type Group implements Node {
@@ -2259,7 +3053,10 @@ type Invoice implements ObjectWithMetadata & Job & Node {
 }
 
 type InvoiceCreate {
-  invoiceErrors: [InvoiceError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  invoiceErrors: [InvoiceError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [InvoiceError!]!
   invoice: Invoice
 }
@@ -2270,7 +3067,10 @@ input InvoiceCreateInput {
 }
 
 type InvoiceDelete {
-  invoiceErrors: [InvoiceError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  invoiceErrors: [InvoiceError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [InvoiceError!]!
   invoice: Invoice
 }
@@ -2293,25 +3093,37 @@ enum InvoiceErrorCode {
 
 type InvoiceRequest {
   order: Order
-  invoiceErrors: [InvoiceError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  invoiceErrors: [InvoiceError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [InvoiceError!]!
   invoice: Invoice
 }
 
 type InvoiceRequestDelete {
-  invoiceErrors: [InvoiceError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  invoiceErrors: [InvoiceError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [InvoiceError!]!
   invoice: Invoice
 }
 
 type InvoiceSendNotification {
-  invoiceErrors: [InvoiceError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  invoiceErrors: [InvoiceError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [InvoiceError!]!
   invoice: Invoice
 }
 
 type InvoiceUpdate {
-  invoiceErrors: [InvoiceError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  invoiceErrors: [InvoiceError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [InvoiceError!]!
   invoice: Invoice
 }
@@ -2466,7 +3278,10 @@ type Menu implements Node & ObjectWithMetadata {
 
 type MenuBulkDelete {
   count: Int!
-  menuErrors: [MenuError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  menuErrors: [MenuError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [MenuError!]!
 }
 
@@ -2482,7 +3297,10 @@ type MenuCountableEdge {
 }
 
 type MenuCreate {
-  menuErrors: [MenuError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  menuErrors: [MenuError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [MenuError!]!
   menu: Menu
 }
@@ -2494,7 +3312,10 @@ input MenuCreateInput {
 }
 
 type MenuDelete {
-  menuErrors: [MenuError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  menuErrors: [MenuError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [MenuError!]!
   menu: Menu
 }
@@ -2546,7 +3367,10 @@ type MenuItem implements Node & ObjectWithMetadata {
 
 type MenuItemBulkDelete {
   count: Int!
-  menuErrors: [MenuError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  menuErrors: [MenuError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [MenuError!]!
 }
 
@@ -2562,7 +3386,10 @@ type MenuItemCountableEdge {
 }
 
 type MenuItemCreate {
-  menuErrors: [MenuError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  menuErrors: [MenuError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [MenuError!]!
   menuItem: MenuItem
 }
@@ -2578,7 +3405,10 @@ input MenuItemCreateInput {
 }
 
 type MenuItemDelete {
-  menuErrors: [MenuError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  menuErrors: [MenuError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [MenuError!]!
   menuItem: MenuItem
 }
@@ -2598,7 +3428,10 @@ input MenuItemInput {
 
 type MenuItemMove {
   menu: Menu
-  menuErrors: [MenuError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  menuErrors: [MenuError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [MenuError!]!
 }
 
@@ -2617,11 +3450,17 @@ type MenuItemTranslatableContent implements Node {
   id: ID!
   name: String!
   translation(languageCode: LanguageCodeEnum!): MenuItemTranslation
-  menuItem: MenuItem @deprecated(reason: "Will be removed in Saleor 4.0. Get model fields from the root level.")
+  menuItem: MenuItem
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Get model fields from the root level."
+    )
 }
 
 type MenuItemTranslate {
-  translationErrors: [TranslationError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  translationErrors: [TranslationError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [TranslationError!]!
   menuItem: MenuItem
 }
@@ -2633,7 +3472,10 @@ type MenuItemTranslation implements Node {
 }
 
 type MenuItemUpdate {
-  menuErrors: [MenuError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  menuErrors: [MenuError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [MenuError!]!
   menuItem: MenuItem
 }
@@ -2653,9 +3495,337 @@ input MenuSortingInput {
 }
 
 type MenuUpdate {
-  menuErrors: [MenuError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  menuErrors: [MenuError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [MenuError!]!
   menu: Menu
+}
+
+enum MerchantCountry {
+  AF
+  AX
+  AL
+  DZ
+  AS
+  AD
+  AO
+  AI
+  AQ
+  AG
+  AR
+  AM
+  AW
+  AU
+  AT
+  AZ
+  BS
+  BH
+  BD
+  BB
+  BY
+  BE
+  BZ
+  BJ
+  BM
+  BT
+  BO
+  BQ
+  BA
+  BW
+  BV
+  BR
+  IO
+  BN
+  BG
+  BF
+  BI
+  CV
+  KH
+  CM
+  CA
+  KY
+  CF
+  TD
+  CL
+  CN
+  CX
+  CC
+  CO
+  KM
+  CG
+  CD
+  CK
+  CR
+  CI
+  HR
+  CU
+  CW
+  CY
+  CZ
+  DK
+  DJ
+  DM
+  DO
+  EC
+  EG
+  SV
+  GQ
+  ER
+  EE
+  SZ
+  ET
+  EU
+  FK
+  FO
+  FJ
+  FI
+  FR
+  GF
+  PF
+  TF
+  GA
+  GM
+  GE
+  DE
+  GH
+  GI
+  GR
+  GL
+  GD
+  GP
+  GU
+  GT
+  GG
+  GN
+  GW
+  GY
+  HT
+  HM
+  VA
+  HN
+  HK
+  HU
+  IS
+  IN
+  ID
+  IR
+  IQ
+  IE
+  IM
+  IL
+  IT
+  JM
+  JP
+  JE
+  JO
+  KZ
+  KE
+  KI
+  KW
+  KG
+  LA
+  LV
+  LB
+  LS
+  LR
+  LY
+  LI
+  LT
+  LU
+  MO
+  MG
+  MW
+  MY
+  MV
+  ML
+  MT
+  MH
+  MQ
+  MR
+  MU
+  YT
+  MX
+  FM
+  MD
+  MC
+  MN
+  ME
+  MS
+  MA
+  MZ
+  MM
+  NA
+  NR
+  NP
+  NL
+  NC
+  NZ
+  NI
+  NE
+  NG
+  NU
+  NF
+  KP
+  MK
+  MP
+  NO
+  OM
+  PK
+  PW
+  PS
+  PA
+  PG
+  PY
+  PE
+  PH
+  PN
+  PL
+  PT
+  PR
+  QA
+  RE
+  RO
+  RU
+  RW
+  BL
+  SH
+  KN
+  LC
+  MF
+  PM
+  VC
+  WS
+  SM
+  ST
+  SA
+  SN
+  RS
+  SC
+  SL
+  SG
+  SX
+  SK
+  SI
+  SB
+  SO
+  ZA
+  GS
+  KR
+  SS
+  ES
+  LK
+  SD
+  SR
+  SJ
+  SE
+  CH
+  SY
+  TW
+  TJ
+  TZ
+  TH
+  TL
+  TG
+  TK
+  TO
+  TT
+  TN
+  TR
+  TM
+  TC
+  TV
+  UG
+  UA
+  AE
+  GB
+  UM
+  US
+  UY
+  UZ
+  VU
+  VE
+  VN
+  VG
+  VI
+  WF
+  EH
+  YE
+  ZM
+  ZW
+}
+
+type MerchantCreate {
+  merchant: MerchantType
+  merchantErrors: [MerchantError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [MerchantError!]!
+}
+
+type MerchantError {
+  field: String
+  message: String
+  code: MerchantErrorCodeEnum!
+}
+
+enum MerchantErrorCodeEnum {
+  GRAPHQL_ERROR
+  INVALID
+  NOT_FOUND
+  REQUIRED
+}
+
+input MerchantInput {
+  name: String
+  userId: ID!
+  backgroundImageAlt: String
+  backgroundImage: Upload
+  logoAlt: String
+  logo: Upload
+}
+
+type MerchantType implements Node {
+  id: ID!
+  name: String!
+  user: User
+  slug: String!
+  country: MerchantCountry!
+  backgroundImage(size: Int): Image
+  backgroundImageAlt: String!
+  logo(size: Int): Image
+  logoAlt: String!
+  contactEmail: String
+  phone: String
+  contactFirstName: String!
+  contactLastName: String!
+  shippingZones(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ShippingZoneCountableConnection!
+  productSet(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductProductCountableConnection!
+  deliverymerchants(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): DeliveryZoneTypeCountableConnection!
+  products(
+    channel: String
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductProductCountableConnection
 }
 
 type MetadataError {
@@ -2701,106 +3871,285 @@ input MoveProductInput {
   sortOrder: Int
 }
 
+type MultipleCheckoutsPaymentCreate {
+  checkouts: [Checkout]
+  payment: Payment
+  paymentErrors: [PaymentError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [PaymentError!]!
+}
+
 type Mutation {
+  preferenceCreate(input: PreferenceCreateInput!): PreferenceCreate
+  preferenceUpdate(id: ID!, input: PreferenceUpdateInput!): PreferenceUpdate
+  preferenceDelete(id: ID!): PreferenceDelete
+  preferenceValueUpdate(
+    id: ID!
+    input: PreferenceValueCreateInput!
+  ): PreferenceValueUpdate
+  createCheckoutLinePreference(
+    attributeId: ID!
+    checkoutLineId: ID!
+    preferenceValue: String!
+  ): CreateCheckoutLinePreference
+  updateCheckoutLinePreference(
+    preferenceId: ID!
+    preferenceValue: String!
+  ): UpdateCheckoutLinePreference
+  addClientsCheckout(input: CheckoutClientInput!): AddClientsCheckout
+  removeClientsCheckout(input: CheckoutClientInput!): RemoveClientsCheckout
+  clearClientsCheckout: ClearClientsCheckout
+  profileAddressCreate(
+    input: AddressInput!
+    profileId: ID!
+  ): ProfileAddressCreate
+  clientCreate(input: ClientInput): ClientCreate
+  bulkClientsCreate(input: BulkClientCreateInput!): BulkClientsCreate
+  clientUpdate(id: ID, input: ClientInput): ClientUpdate
+  clientDelete(ids: [ID]!): ClientDelete
+  tokenCreate(email: String, password: String!): GoalsMapperLogin
+  updateClientEmail(clientId: ID!, email: String!): UpdateClientEmail
+  deliveryZoneCreate(input: DeliveryZoneInput!): DeliveryZoneCreate
+  merchantCreate(input: MerchantInput!): MerchantCreate
+  userTenantCreate(input: UserTenantInput!): UserTenantCreate
+  tenantCreate(input: TenantInput!): TenantCreate
   webhookCreate(input: WebhookCreateInput!): WebhookCreate
   webhookDelete(id: ID!): WebhookDelete
   webhookUpdate(id: ID!, input: WebhookUpdateInput!): WebhookUpdate
   createWarehouse(input: WarehouseCreateInput!): WarehouseCreate
   updateWarehouse(id: ID!, input: WarehouseUpdateInput!): WarehouseUpdate
   deleteWarehouse(id: ID!): WarehouseDelete
-  assignWarehouseShippingZone(id: ID!, shippingZoneIds: [ID!]!): WarehouseShippingZoneAssign
-  unassignWarehouseShippingZone(id: ID!, shippingZoneIds: [ID!]!): WarehouseShippingZoneUnassign
-  staffNotificationRecipientCreate(input: StaffNotificationRecipientInput!): StaffNotificationRecipientCreate
-  staffNotificationRecipientUpdate(id: ID!, input: StaffNotificationRecipientInput!): StaffNotificationRecipientUpdate
+  assignWarehouseShippingZone(
+    id: ID!
+    shippingZoneIds: [ID!]!
+  ): WarehouseShippingZoneAssign
+  unassignWarehouseShippingZone(
+    id: ID!
+    shippingZoneIds: [ID!]!
+  ): WarehouseShippingZoneUnassign
+  staffNotificationRecipientCreate(
+    input: StaffNotificationRecipientInput!
+  ): StaffNotificationRecipientCreate
+  staffNotificationRecipientUpdate(
+    id: ID!
+    input: StaffNotificationRecipientInput!
+  ): StaffNotificationRecipientUpdate
   staffNotificationRecipientDelete(id: ID!): StaffNotificationRecipientDelete
   shopDomainUpdate(input: SiteDomainInput): ShopDomainUpdate
   shopSettingsUpdate(input: ShopSettingsInput!): ShopSettingsUpdate
   shopFetchTaxRates: ShopFetchTaxRates
-  shopSettingsTranslate(input: ShopSettingsTranslationInput!, languageCode: LanguageCodeEnum!): ShopSettingsTranslate
+  shopSettingsTranslate(
+    input: ShopSettingsTranslationInput!
+    languageCode: LanguageCodeEnum!
+  ): ShopSettingsTranslate
   shopAddressUpdate(input: AddressInput): ShopAddressUpdate
   orderSettingsUpdate(input: OrderSettingsUpdateInput!): OrderSettingsUpdate
-  shippingMethodChannelListingUpdate(id: ID!, input: ShippingMethodChannelListingInput!): ShippingMethodChannelListingUpdate
+  shippingMethodChannelListingUpdate(
+    id: ID!
+    input: ShippingMethodChannelListingInput!
+  ): ShippingMethodChannelListingUpdate
   shippingPriceCreate(input: ShippingPriceInput!): ShippingPriceCreate
   shippingPriceDelete(id: ID!): ShippingPriceDelete
   shippingPriceBulkDelete(ids: [ID]!): ShippingPriceBulkDelete
   shippingPriceUpdate(id: ID!, input: ShippingPriceInput!): ShippingPriceUpdate
-  shippingPriceTranslate(id: ID!, input: ShippingPriceTranslationInput!, languageCode: LanguageCodeEnum!): ShippingPriceTranslate
-  shippingPriceExcludeProducts(id: ID!, input: ShippingPriceExcludeProductsInput!): ShippingPriceExcludeProducts
-  shippingPriceRemoveProductFromExclude(id: ID!, products: [ID]!): ShippingPriceRemoveProductFromExclude
+  shippingPriceTranslate(
+    id: ID!
+    input: ShippingPriceTranslationInput!
+    languageCode: LanguageCodeEnum!
+  ): ShippingPriceTranslate
+  shippingPriceExcludeProducts(
+    id: ID!
+    input: ShippingPriceExcludeProductsInput!
+  ): ShippingPriceExcludeProducts
+  shippingPriceRemoveProductFromExclude(
+    id: ID!
+    products: [ID]!
+  ): ShippingPriceRemoveProductFromExclude
   shippingZoneCreate(input: ShippingZoneCreateInput!): ShippingZoneCreate
   shippingZoneDelete(id: ID!): ShippingZoneDelete
   shippingZoneBulkDelete(ids: [ID]!): ShippingZoneBulkDelete
-  shippingZoneUpdate(id: ID!, input: ShippingZoneUpdateInput!): ShippingZoneUpdate
-  productAttributeAssign(operations: [ProductAttributeAssignInput]!, productTypeId: ID!): ProductAttributeAssign
-  productAttributeUnassign(attributeIds: [ID]!, productTypeId: ID!): ProductAttributeUnassign
+  shippingZoneUpdate(
+    id: ID!
+    input: ShippingZoneUpdateInput!
+  ): ShippingZoneUpdate
+  productAttributeAssign(
+    operations: [ProductAttributeAssignInput]!
+    productTypeId: ID!
+  ): ProductAttributeAssign
+  productAttributeUnassign(
+    attributeIds: [ID]!
+    productTypeId: ID!
+  ): ProductAttributeUnassign
   categoryCreate(input: CategoryInput!, parent: ID): CategoryCreate
   categoryDelete(id: ID!): CategoryDelete
   categoryBulkDelete(ids: [ID]!): CategoryBulkDelete
   categoryUpdate(id: ID!, input: CategoryInput!): CategoryUpdate
-  categoryTranslate(id: ID!, input: TranslationInput!, languageCode: LanguageCodeEnum!): CategoryTranslate
-  collectionAddProducts(collectionId: ID!, products: [ID]!): CollectionAddProducts
+  categoryTranslate(
+    id: ID!
+    input: TranslationInput!
+    languageCode: LanguageCodeEnum!
+  ): CategoryTranslate
+  collectionAddProducts(
+    collectionId: ID!
+    products: [ID]!
+  ): CollectionAddProducts
   collectionCreate(input: CollectionCreateInput!): CollectionCreate
   collectionDelete(id: ID!): CollectionDelete
-  collectionReorderProducts(collectionId: ID!, moves: [MoveProductInput]!): CollectionReorderProducts
+  collectionReorderProducts(
+    collectionId: ID!
+    moves: [MoveProductInput]!
+  ): CollectionReorderProducts
   collectionBulkDelete(ids: [ID]!): CollectionBulkDelete
-  collectionRemoveProducts(collectionId: ID!, products: [ID]!): CollectionRemoveProducts
+  collectionRemoveProducts(
+    collectionId: ID!
+    products: [ID]!
+  ): CollectionRemoveProducts
   collectionUpdate(id: ID!, input: CollectionInput!): CollectionUpdate
-  collectionTranslate(id: ID!, input: TranslationInput!, languageCode: LanguageCodeEnum!): CollectionTranslate
-  collectionChannelListingUpdate(id: ID!, input: CollectionChannelListingUpdateInput!): CollectionChannelListingUpdate
+  collectionTranslate(
+    id: ID!
+    input: TranslationInput!
+    languageCode: LanguageCodeEnum!
+  ): CollectionTranslate
+  collectionChannelListingUpdate(
+    id: ID!
+    input: CollectionChannelListingUpdateInput!
+  ): CollectionChannelListingUpdate
   productCreate(input: ProductCreateInput!): ProductCreate
   productDelete(id: ID!): ProductDelete
   productBulkDelete(ids: [ID]!): ProductBulkDelete
   productUpdate(id: ID!, input: ProductInput!): ProductUpdate
-  productTranslate(id: ID!, input: TranslationInput!, languageCode: LanguageCodeEnum!): ProductTranslate
-  productChannelListingUpdate(id: ID!, input: ProductChannelListingUpdateInput!): ProductChannelListingUpdate
+  productTranslate(
+    id: ID!
+    input: TranslationInput!
+    languageCode: LanguageCodeEnum!
+  ): ProductTranslate
+  productChannelListingUpdate(
+    id: ID!
+    input: ProductChannelListingUpdateInput!
+  ): ProductChannelListingUpdate
   productMediaCreate(input: ProductMediaCreateInput!): ProductMediaCreate
-  productVariantReorder(moves: [ReorderInput]!, productId: ID!): ProductVariantReorder
+  productVariantReorder(
+    moves: [ReorderInput]!
+    productId: ID!
+  ): ProductVariantReorder
   productMediaDelete(id: ID!): ProductMediaDelete
   productMediaBulkDelete(ids: [ID]!): ProductMediaBulkDelete
   productMediaReorder(mediaIds: [ID]!, productId: ID!): ProductMediaReorder
-  productMediaUpdate(id: ID!, input: ProductMediaUpdateInput!): ProductMediaUpdate
+  productMediaUpdate(
+    id: ID!
+    input: ProductMediaUpdateInput!
+  ): ProductMediaUpdate
   productTypeCreate(input: ProductTypeInput!): ProductTypeCreate
   productTypeDelete(id: ID!): ProductTypeDelete
   productTypeBulkDelete(ids: [ID]!): ProductTypeBulkDelete
   productTypeUpdate(id: ID!, input: ProductTypeInput!): ProductTypeUpdate
-  productTypeReorderAttributes(moves: [ReorderInput]!, productTypeId: ID!, type: ProductAttributeType!): ProductTypeReorderAttributes
-  productReorderAttributeValues(attributeId: ID!, moves: [ReorderInput]!, productId: ID!): ProductReorderAttributeValues
-  digitalContentCreate(input: DigitalContentUploadInput!, variantId: ID!): DigitalContentCreate
+  productTypeReorderAttributes(
+    moves: [ReorderInput]!
+    productTypeId: ID!
+    type: ProductAttributeType!
+  ): ProductTypeReorderAttributes
+  productReorderAttributeValues(
+    attributeId: ID!
+    moves: [ReorderInput]!
+    productId: ID!
+  ): ProductReorderAttributeValues
+  digitalContentCreate(
+    input: DigitalContentUploadInput!
+    variantId: ID!
+  ): DigitalContentCreate
   digitalContentDelete(variantId: ID!): DigitalContentDelete
-  digitalContentUpdate(input: DigitalContentInput!, variantId: ID!): DigitalContentUpdate
-  digitalContentUrlCreate(input: DigitalContentUrlCreateInput!): DigitalContentUrlCreate
+  digitalContentUpdate(
+    input: DigitalContentInput!
+    variantId: ID!
+  ): DigitalContentUpdate
+  digitalContentUrlCreate(
+    input: DigitalContentUrlCreateInput!
+  ): DigitalContentUrlCreate
   productVariantCreate(input: ProductVariantCreateInput!): ProductVariantCreate
   productVariantDelete(id: ID!): ProductVariantDelete
-  productVariantBulkCreate(product: ID!, variants: [ProductVariantBulkCreateInput]!): ProductVariantBulkCreate
+  productVariantBulkCreate(
+    product: ID!
+    variants: [ProductVariantBulkCreateInput]!
+  ): ProductVariantBulkCreate
   productVariantBulkDelete(ids: [ID]!): ProductVariantBulkDelete
-  productVariantStocksCreate(stocks: [StockInput!]!, variantId: ID!): ProductVariantStocksCreate
-  productVariantStocksDelete(variantId: ID!, warehouseIds: [ID!]): ProductVariantStocksDelete
-  productVariantStocksUpdate(stocks: [StockInput!]!, variantId: ID!): ProductVariantStocksUpdate
-  productVariantUpdate(id: ID!, input: ProductVariantInput!): ProductVariantUpdate
-  productVariantSetDefault(productId: ID!, variantId: ID!): ProductVariantSetDefault
-  productVariantTranslate(id: ID!, input: NameTranslationInput!, languageCode: LanguageCodeEnum!): ProductVariantTranslate
-  productVariantChannelListingUpdate(id: ID!, input: [ProductVariantChannelListingAddInput!]!): ProductVariantChannelListingUpdate
-  productVariantReorderAttributeValues(attributeId: ID!, moves: [ReorderInput]!, variantId: ID!): ProductVariantReorderAttributeValues
+  productVariantStocksCreate(
+    stocks: [StockInput!]!
+    variantId: ID!
+  ): ProductVariantStocksCreate
+  productVariantStocksDelete(
+    variantId: ID!
+    warehouseIds: [ID!]
+  ): ProductVariantStocksDelete
+  productVariantStocksUpdate(
+    stocks: [StockInput!]!
+    variantId: ID!
+  ): ProductVariantStocksUpdate
+  productVariantUpdate(
+    id: ID!
+    input: ProductVariantInput!
+  ): ProductVariantUpdate
+  productVariantSetDefault(
+    productId: ID!
+    variantId: ID!
+  ): ProductVariantSetDefault
+  productVariantTranslate(
+    id: ID!
+    input: NameTranslationInput!
+    languageCode: LanguageCodeEnum!
+  ): ProductVariantTranslate
+  productVariantChannelListingUpdate(
+    id: ID!
+    input: [ProductVariantChannelListingAddInput!]!
+  ): ProductVariantChannelListingUpdate
+  productVariantReorderAttributeValues(
+    attributeId: ID!
+    moves: [ReorderInput]!
+    variantId: ID!
+  ): ProductVariantReorderAttributeValues
   variantMediaAssign(mediaId: ID!, variantId: ID!): VariantMediaAssign
   variantMediaUnassign(mediaId: ID!, variantId: ID!): VariantMediaUnassign
+  productFavoriteToggle(id: ID!): ProductFavoriteToggle
   paymentCapture(amount: PositiveDecimal, paymentId: ID!): PaymentCapture
   paymentRefund(amount: PositiveDecimal, paymentId: ID!): PaymentRefund
   paymentVoid(paymentId: ID!): PaymentVoid
-  paymentInitialize(channel: String, gateway: String!, paymentData: JSONString): PaymentInitialize
+  paymentInitialize(
+    channel: String
+    gateway: String!
+    paymentData: JSONString
+  ): PaymentInitialize
   pageCreate(input: PageCreateInput!): PageCreate
   pageDelete(id: ID!): PageDelete
   pageBulkDelete(ids: [ID]!): PageBulkDelete
   pageBulkPublish(ids: [ID]!, isPublished: Boolean!): PageBulkPublish
   pageUpdate(id: ID!, input: PageInput!): PageUpdate
-  pageTranslate(id: ID!, input: PageTranslationInput!, languageCode: LanguageCodeEnum!): PageTranslate
+  pageTranslate(
+    id: ID!
+    input: PageTranslationInput!
+    languageCode: LanguageCodeEnum!
+  ): PageTranslate
   pageTypeCreate(input: PageTypeCreateInput!): PageTypeCreate
   pageTypeUpdate(id: ID, input: PageTypeUpdateInput!): PageTypeUpdate
   pageTypeDelete(id: ID!): PageTypeDelete
   pageTypeBulkDelete(ids: [ID!]!): PageTypeBulkDelete
-  pageAttributeAssign(attributeIds: [ID!]!, pageTypeId: ID!): PageAttributeAssign
-  pageAttributeUnassign(attributeIds: [ID!]!, pageTypeId: ID!): PageAttributeUnassign
-  pageTypeReorderAttributes(moves: [ReorderInput!]!, pageTypeId: ID!): PageTypeReorderAttributes
-  pageReorderAttributeValues(attributeId: ID!, moves: [ReorderInput]!, pageId: ID!): PageReorderAttributeValues
+  pageAttributeAssign(
+    attributeIds: [ID!]!
+    pageTypeId: ID!
+  ): PageAttributeAssign
+  pageAttributeUnassign(
+    attributeIds: [ID!]!
+    pageTypeId: ID!
+  ): PageAttributeUnassign
+  pageTypeReorderAttributes(
+    moves: [ReorderInput!]!
+    pageTypeId: ID!
+  ): PageTypeReorderAttributes
+  pageReorderAttributeValues(
+    attributeId: ID!
+    moves: [ReorderInput]!
+    pageId: ID!
+  ): PageReorderAttributeValues
   draftOrderComplete(id: ID!): DraftOrderComplete
   draftOrderCreate(input: DraftOrderCreateInput!): DraftOrderCreate
   draftOrderDelete(id: ID!): DraftOrderDelete
@@ -2812,28 +4161,56 @@ type Mutation {
   orderCapture(amount: PositiveDecimal!, id: ID!): OrderCapture
   orderConfirm(id: ID!): OrderConfirm
   orderFulfill(input: OrderFulfillInput!, order: ID): OrderFulfill
-  orderFulfillmentCancel(id: ID!, input: FulfillmentCancelInput!): FulfillmentCancel
-  orderFulfillmentUpdateTracking(id: ID!, input: FulfillmentUpdateTrackingInput!): FulfillmentUpdateTracking
-  orderFulfillmentRefundProducts(input: OrderRefundProductsInput!, order: ID!): FulfillmentRefundProducts
-  orderFulfillmentReturnProducts(input: OrderReturnProductsInput!, order: ID!): FulfillmentReturnProducts
+  orderFulfillmentCancel(
+    id: ID!
+    input: FulfillmentCancelInput!
+  ): FulfillmentCancel
+  orderFulfillmentUpdateTracking(
+    id: ID!
+    input: FulfillmentUpdateTrackingInput!
+  ): FulfillmentUpdateTracking
+  orderFulfillmentRefundProducts(
+    input: OrderRefundProductsInput!
+    order: ID!
+  ): FulfillmentRefundProducts
+  orderFulfillmentReturnProducts(
+    input: OrderReturnProductsInput!
+    order: ID!
+  ): FulfillmentReturnProducts
   orderLinesCreate(id: ID!, input: [OrderLineCreateInput]!): OrderLinesCreate
   orderLineDelete(id: ID!): OrderLineDelete
   orderLineUpdate(id: ID!, input: OrderLineInput!): OrderLineUpdate
-  orderDiscountAdd(input: OrderDiscountCommonInput!, orderId: ID!): OrderDiscountAdd
-  orderDiscountUpdate(discountId: ID!, input: OrderDiscountCommonInput!): OrderDiscountUpdate
+  orderDiscountAdd(
+    input: OrderDiscountCommonInput!
+    orderId: ID!
+  ): OrderDiscountAdd
+  orderDiscountUpdate(
+    discountId: ID!
+    input: OrderDiscountCommonInput!
+  ): OrderDiscountUpdate
   orderDiscountDelete(discountId: ID!): OrderDiscountDelete
-  orderLineDiscountUpdate(input: OrderDiscountCommonInput!, orderLineId: ID!): OrderLineDiscountUpdate
+  orderLineDiscountUpdate(
+    input: OrderDiscountCommonInput!
+    orderLineId: ID!
+  ): OrderLineDiscountUpdate
   orderLineDiscountRemove(orderLineId: ID!): OrderLineDiscountRemove
   orderMarkAsPaid(id: ID!, transactionReference: String): OrderMarkAsPaid
   orderRefund(amount: PositiveDecimal!, id: ID!): OrderRefund
   orderUpdate(id: ID!, input: OrderUpdateInput!): OrderUpdate
-  orderUpdateShipping(order: ID!, input: OrderUpdateShippingInput): OrderUpdateShipping
+  orderUpdateShipping(
+    order: ID!
+    input: OrderUpdateShippingInput
+  ): OrderUpdateShipping
   orderVoid(id: ID!): OrderVoid
   orderBulkCancel(ids: [ID]!): OrderBulkCancel
+  orderBulkCreate(channelId: ID, line: OrderLineCreateInput): OrderBulkCreate
   deleteMetadata(id: ID!, keys: [String!]!): DeleteMetadata
   deletePrivateMetadata(id: ID!, keys: [String!]!): DeletePrivateMetadata
   updateMetadata(id: ID!, input: [MetadataInput!]!): UpdateMetadata
-  updatePrivateMetadata(id: ID!, input: [MetadataInput!]!): UpdatePrivateMetadata
+  updatePrivateMetadata(
+    id: ID!
+    input: [MetadataInput!]!
+  ): UpdatePrivateMetadata
   assignNavigation(menu: ID, navigationType: NavigationType!): AssignNavigation
   menuCreate(input: MenuCreateInput!): MenuCreate
   menuDelete(id: ID!): MenuDelete
@@ -2843,7 +4220,11 @@ type Mutation {
   menuItemDelete(id: ID!): MenuItemDelete
   menuItemBulkDelete(ids: [ID]!): MenuItemBulkDelete
   menuItemUpdate(id: ID!, input: MenuItemInput!): MenuItemUpdate
-  menuItemTranslate(id: ID!, input: NameTranslationInput!, languageCode: LanguageCodeEnum!): MenuItemTranslate
+  menuItemTranslate(
+    id: ID!
+    input: NameTranslationInput!
+    languageCode: LanguageCodeEnum!
+  ): MenuItemTranslate
   menuItemMove(menu: ID!, moves: [MenuItemMoveInput]!): MenuItemMove
   invoiceRequest(number: String, orderId: ID!): InvoiceRequest
   invoiceRequestDelete(id: ID!): InvoiceRequestDelete
@@ -2862,33 +4243,120 @@ type Mutation {
   saleUpdate(id: ID!, input: SaleInput!): SaleUpdate
   saleCataloguesAdd(id: ID!, input: CatalogueInput!): SaleAddCatalogues
   saleCataloguesRemove(id: ID!, input: CatalogueInput!): SaleRemoveCatalogues
-  saleTranslate(id: ID!, input: NameTranslationInput!, languageCode: LanguageCodeEnum!): SaleTranslate
-  saleChannelListingUpdate(id: ID!, input: SaleChannelListingInput!): SaleChannelListingUpdate
+  saleTranslate(
+    id: ID!
+    input: NameTranslationInput!
+    languageCode: LanguageCodeEnum!
+  ): SaleTranslate
+  saleChannelListingUpdate(
+    id: ID!
+    input: SaleChannelListingInput!
+  ): SaleChannelListingUpdate
   voucherCreate(input: VoucherInput!): VoucherCreate
   voucherDelete(id: ID!): VoucherDelete
   voucherBulkDelete(ids: [ID]!): VoucherBulkDelete
   voucherUpdate(id: ID!, input: VoucherInput!): VoucherUpdate
   voucherCataloguesAdd(id: ID!, input: CatalogueInput!): VoucherAddCatalogues
-  voucherCataloguesRemove(id: ID!, input: CatalogueInput!): VoucherRemoveCatalogues
-  voucherTranslate(id: ID!, input: NameTranslationInput!, languageCode: LanguageCodeEnum!): VoucherTranslate
-  voucherChannelListingUpdate(id: ID!, input: VoucherChannelListingInput!): VoucherChannelListingUpdate
+  voucherCataloguesRemove(
+    id: ID!
+    input: CatalogueInput!
+  ): VoucherRemoveCatalogues
+  voucherTranslate(
+    id: ID!
+    input: NameTranslationInput!
+    languageCode: LanguageCodeEnum!
+  ): VoucherTranslate
+  voucherChannelListingUpdate(
+    id: ID!
+    input: VoucherChannelListingInput!
+  ): VoucherChannelListingUpdate
   exportProducts(input: ExportProductsInput!): ExportProducts
   fileUpload(file: Upload!): FileUpload
-  checkoutAddPromoCode(checkoutId: ID, promoCode: String!, token: UUID): CheckoutAddPromoCode
-  checkoutBillingAddressUpdate(billingAddress: AddressInput!, checkoutId: ID, token: UUID): CheckoutBillingAddressUpdate
-  checkoutComplete(checkoutId: ID, paymentData: JSONString, redirectUrl: String, storeSource: Boolean = false, token: UUID): CheckoutComplete
+  checkoutAddPromoCode(
+    checkoutId: ID
+    promoCode: String!
+    token: UUID
+  ): CheckoutAddPromoCode
+  checkoutBillingAddressUpdate(
+    billingAddress: AddressInput!
+    checkoutId: ID
+    token: UUID
+  ): CheckoutBillingAddressUpdate
+  checkoutComplete(
+    checkoutId: ID
+    paymentData: JSONString
+    redirectUrl: String
+    storeSource: Boolean = false
+    token: UUID
+  ): CheckoutComplete
   checkoutCreate(input: CheckoutCreateInput!): CheckoutCreate
   checkoutCustomerAttach(checkoutId: ID, token: UUID): CheckoutCustomerAttach
   checkoutCustomerDetach(checkoutId: ID, token: UUID): CheckoutCustomerDetach
-  checkoutEmailUpdate(checkoutId: ID, email: String!, token: UUID): CheckoutEmailUpdate
-  checkoutLineDelete(checkoutId: ID, lineId: ID, token: UUID): CheckoutLineDelete
-  checkoutLinesAdd(checkoutId: ID, lines: [CheckoutLineInput]!, token: UUID): CheckoutLinesAdd
-  checkoutLinesUpdate(checkoutId: ID, lines: [CheckoutLineInput]!, token: UUID): CheckoutLinesUpdate
-  checkoutRemovePromoCode(checkoutId: ID, promoCode: String!, token: UUID): CheckoutRemovePromoCode
-  checkoutPaymentCreate(checkoutId: ID, input: PaymentInput!, token: UUID): CheckoutPaymentCreate
-  checkoutShippingAddressUpdate(checkoutId: ID, shippingAddress: AddressInput!, token: UUID): CheckoutShippingAddressUpdate
-  checkoutShippingMethodUpdate(checkoutId: ID, shippingMethodId: ID!, token: UUID): CheckoutShippingMethodUpdate
-  checkoutLanguageCodeUpdate(checkoutId: ID, languageCode: LanguageCodeEnum!, token: UUID): CheckoutLanguageCodeUpdate
+  checkoutEmailUpdate(
+    checkoutId: ID
+    email: String!
+    token: UUID
+  ): CheckoutEmailUpdate
+  checkoutLineDelete(
+    checkoutId: ID
+    lineId: ID
+    token: UUID
+  ): CheckoutLineDelete
+  checkoutLinesAdd(
+    checkoutId: ID
+    lines: [CheckoutLineWithPreferencesInput]!
+    token: UUID
+  ): CheckoutLinesAdd
+  checkoutLinesUpdate(
+    checkoutId: ID
+    lines: [CheckoutLineWithPreferencesInput]!
+    token: UUID
+  ): CheckoutLinesUpdate
+  checkoutRemovePromoCode(
+    checkoutId: ID
+    promoCode: String!
+    token: UUID
+  ): CheckoutRemovePromoCode
+  checkoutPaymentCreate(
+    checkoutId: ID
+    input: PaymentInput!
+    token: UUID
+  ): CheckoutPaymentCreate
+  checkoutShippingAddressUpdate(
+    checkoutId: ID
+    shipToAdvisor: Boolean
+    shippingAddress: AddressInput
+    token: UUID
+  ): CheckoutShippingAddressUpdate
+  checkoutShippingMethodUpdate(
+    checkoutId: ID
+    shippingMethodId: ID!
+    token: UUID
+  ): CheckoutShippingMethodUpdate
+  checkoutLanguageCodeUpdate(
+    checkoutId: ID
+    languageCode: LanguageCodeEnum!
+    token: UUID
+  ): CheckoutLanguageCodeUpdate
+  checkoutBulkCreate(input: BulkCheckoutCreateInput!): CheckoutBulkCreate
+  bulkCheckoutComplete(
+    coinsRedeemed: Int!
+    ordersSentToFc: Int!
+    paymentData: JSONString
+    redirectUrl: String
+    storeSource: Boolean = false
+    tokens: [UUID]!
+  ): BulkCheckoutComplete
+  multipleCheckoutsPaymentCreate(
+    input: PaymentInput
+    tokens: [UUID]
+  ): MultipleCheckoutsPaymentCreate
+  userCheckoutDelete: UserCheckoutDelete
+  checkoutDelete(token: String!): CheckoutDelete
+  checkoutUpdateShipToAdvisor(
+    shipToAdvisor: Boolean!
+    token: UUID!
+  ): CheckoutUpdateShipToAdvisor
   channelCreate(input: ChannelCreateInput!): ChannelCreate
   channelUpdate(id: ID!, input: ChannelUpdateInput!): ChannelUpdate
   channelDelete(id: ID!, input: ChannelDeleteInput): ChannelDelete
@@ -2897,14 +4365,31 @@ type Mutation {
   attributeCreate(input: AttributeCreateInput!): AttributeCreate
   attributeDelete(id: ID!): AttributeDelete
   attributeUpdate(id: ID!, input: AttributeUpdateInput!): AttributeUpdate
-  attributeTranslate(id: ID!, input: NameTranslationInput!, languageCode: LanguageCodeEnum!): AttributeTranslate
+  attributeTranslate(
+    id: ID!
+    input: NameTranslationInput!
+    languageCode: LanguageCodeEnum!
+  ): AttributeTranslate
   attributeBulkDelete(ids: [ID]!): AttributeBulkDelete
   attributeValueBulkDelete(ids: [ID]!): AttributeValueBulkDelete
-  attributeValueCreate(attribute: ID!, input: AttributeValueCreateInput!): AttributeValueCreate
+  attributeValueCreate(
+    attribute: ID!
+    input: AttributeValueCreateInput!
+  ): AttributeValueCreate
   attributeValueDelete(id: ID!): AttributeValueDelete
-  attributeValueUpdate(id: ID!, input: AttributeValueCreateInput!): AttributeValueUpdate
-  attributeValueTranslate(id: ID!, input: AttributeValueTranslationInput!, languageCode: LanguageCodeEnum!): AttributeValueTranslate
-  attributeReorderValues(attributeId: ID!, moves: [ReorderInput]!): AttributeReorderValues
+  attributeValueUpdate(
+    id: ID!
+    input: AttributeValueCreateInput!
+  ): AttributeValueUpdate
+  attributeValueTranslate(
+    id: ID!
+    input: AttributeValueTranslationInput!
+    languageCode: LanguageCodeEnum!
+  ): AttributeValueTranslate
+  attributeReorderValues(
+    attributeId: ID!
+    moves: [ReorderInput]!
+  ): AttributeReorderValues
   appCreate(input: AppInput!): AppCreate
   appUpdate(id: ID!, input: AppInput!): AppUpdate
   appDelete(id: ID!): AppDelete
@@ -2912,38 +4397,69 @@ type Mutation {
   appTokenDelete(id: ID!): AppTokenDelete
   appTokenVerify(token: String!): AppTokenVerify
   appInstall(input: AppInstallInput!): AppInstall
-  appRetryInstall(activateAfterInstallation: Boolean = true, id: ID!): AppRetryInstall
+  appRetryInstall(
+    activateAfterInstallation: Boolean = true
+    id: ID!
+  ): AppRetryInstall
   appDeleteFailedInstallation(id: ID!): AppDeleteFailedInstallation
   appFetchManifest(manifestUrl: String!): AppFetchManifest
   appActivate(id: ID!): AppActivate
   appDeactivate(id: ID!): AppDeactivate
-  tokenCreate(email: String!, password: String!): CreateToken
+  gmrTokenCreate(email: String!, password: String!): CreateToken
   tokenRefresh(csrfToken: String, refreshToken: String): RefreshToken
   tokenVerify(token: String!): VerifyToken
   tokensDeactivateAll: DeactivateAllUserTokens
-  externalAuthenticationUrl(input: JSONString!, pluginId: String!): ExternalAuthenticationUrl
-  externalObtainAccessTokens(input: JSONString!, pluginId: String!): ExternalObtainAccessTokens
+  externalAuthenticationUrl(
+    input: JSONString!
+    pluginId: String!
+  ): ExternalAuthenticationUrl
+  externalObtainAccessTokens(
+    input: JSONString!
+    pluginId: String!
+  ): ExternalObtainAccessTokens
   externalRefresh(input: JSONString!, pluginId: String!): ExternalRefresh
   externalLogout(input: JSONString!, pluginId: String!): ExternalLogout
   externalVerify(input: JSONString!, pluginId: String!): ExternalVerify
-  requestPasswordReset(channel: String, email: String!, redirectUrl: String!): RequestPasswordReset
+  requestPasswordReset(
+    channel: String
+    email: String!
+    redirectUrl: String!
+  ): RequestPasswordReset
   confirmAccount(email: String!, token: String!): ConfirmAccount
   setPassword(email: String!, password: String!, token: String!): SetPassword
   passwordChange(newPassword: String!, oldPassword: String!): PasswordChange
-  requestEmailChange(channel: String, newEmail: String!, password: String!, redirectUrl: String!): RequestEmailChange
+  requestEmailChange(
+    channel: String
+    newEmail: String!
+    password: String!
+    redirectUrl: String!
+  ): RequestEmailChange
   confirmEmailChange(channel: String, token: String!): ConfirmEmailChange
-  accountAddressCreate(input: AddressInput!, type: AddressTypeEnum): AccountAddressCreate
+  accountAddressCreate(
+    input: AddressInput!
+    type: AddressTypeEnum
+  ): AccountAddressCreate
   accountAddressUpdate(id: ID!, input: AddressInput!): AccountAddressUpdate
   accountAddressDelete(id: ID!): AccountAddressDelete
-  accountSetDefaultAddress(id: ID!, type: AddressTypeEnum!): AccountSetDefaultAddress
+  accountSetDefaultAddress(
+    id: ID!
+    type: AddressTypeEnum!
+  ): AccountSetDefaultAddress
   accountRegister(input: AccountRegisterInput!): AccountRegister
   accountUpdate(input: AccountInput!): AccountUpdate
-  accountRequestDeletion(channel: String, redirectUrl: String!): AccountRequestDeletion
+  accountRequestDeletion(
+    channel: String
+    redirectUrl: String!
+  ): AccountRequestDeletion
   accountDelete(token: String!): AccountDelete
   addressCreate(input: AddressInput!, userId: ID!): AddressCreate
   addressUpdate(id: ID!, input: AddressInput!): AddressUpdate
   addressDelete(id: ID!): AddressDelete
-  addressSetDefault(addressId: ID!, type: AddressTypeEnum!, userId: ID!): AddressSetDefault
+  addressSetDefault(
+    addressId: ID!
+    type: AddressTypeEnum!
+    userId: ID!
+  ): AddressSetDefault
   customerCreate(input: UserCreateInput!): CustomerCreate
   customerUpdate(id: ID!, input: CustomerInput!): CustomerUpdate
   customerDelete(id: ID!): CustomerDelete
@@ -2955,8 +4471,13 @@ type Mutation {
   userAvatarUpdate(image: Upload!): UserAvatarUpdate
   userAvatarDelete: UserAvatarDelete
   userBulkSetActive(ids: [ID]!, isActive: Boolean!): UserBulkSetActive
-  permissionGroupCreate(input: PermissionGroupCreateInput!): PermissionGroupCreate
-  permissionGroupUpdate(id: ID!, input: PermissionGroupUpdateInput!): PermissionGroupUpdate
+  permissionGroupCreate(
+    input: PermissionGroupCreateInput!
+  ): PermissionGroupCreate
+  permissionGroupUpdate(
+    id: ID!
+    input: PermissionGroupUpdateInput!
+  ): PermissionGroupUpdate
   permissionGroupDelete(id: ID!): PermissionGroupDelete
 }
 
@@ -2998,6 +4519,7 @@ type Order implements Node & ObjectWithMetadata {
   customerNote: String!
   weight: Weight
   redirectUrl: String
+  bulkOrderReference: BulkOrderReference
   privateMetadata: [MetadataItem]!
   metadata: [MetadataItem]!
   fulfillments: [Fulfillment]!
@@ -3023,11 +4545,23 @@ type Order implements Node & ObjectWithMetadata {
   totalBalance: Money!
   userEmail: String
   isShippingRequired: Boolean!
-  languageCode: String! @deprecated(reason: "Use the `languageCodeEnum` field to fetch the language code. This field will be removed in Saleor 4.0.")
+  languageCode: String!
+    @deprecated(
+      reason: "Use the `languageCodeEnum` field to fetch the language code. This field will be removed in Saleor 4.0."
+    )
   languageCodeEnum: LanguageCodeEnum!
-  discount: Money @deprecated(reason: "Use discounts field. This field will be removed in Saleor 4.0.")
-  discountName: String @deprecated(reason: "Use discounts field. This field will be removed in Saleor 4.0.")
-  translatedDiscountName: String @deprecated(reason: "Use discounts field. This field will be removed in Saleor 4.0.")
+  discount: Money
+    @deprecated(
+      reason: "Use discounts field. This field will be removed in Saleor 4.0."
+    )
+  discountName: String
+    @deprecated(
+      reason: "Use discounts field. This field will be removed in Saleor 4.0."
+    )
+  translatedDiscountName: String
+    @deprecated(
+      reason: "Use discounts field. This field will be removed in Saleor 4.0."
+    )
   discounts: [OrderDiscount!]
   errors: [OrderError!]!
 }
@@ -3042,7 +4576,10 @@ enum OrderAction {
 type OrderAddNote {
   order: Order
   event: OrderEvent
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
@@ -3052,25 +4589,46 @@ input OrderAddNoteInput {
 
 type OrderBulkCancel {
   count: Int!
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [OrderError!]!
+}
+
+type OrderBulkCreate {
+  created: Int
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
 type OrderCancel {
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
 type OrderCapture {
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
 type OrderConfirm {
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
@@ -3103,7 +4661,10 @@ type OrderDiscount implements Node {
 
 type OrderDiscountAdd {
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
@@ -3115,7 +4676,10 @@ input OrderDiscountCommonInput {
 
 type OrderDiscountDelete {
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
@@ -3126,7 +4690,10 @@ enum OrderDiscountType {
 
 type OrderDiscountUpdate {
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
@@ -3303,7 +4870,10 @@ input OrderFilterInput {
 type OrderFulfill {
   fulfillments: [Fulfillment]
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
@@ -3344,6 +4914,7 @@ type OrderLine implements Node {
   translatedVariantName: String!
   allocations: [Allocation!]
   unitDiscountType: DiscountValueTypeEnum
+  preferences: [OrderLinePreferenceAssignedValue]
 }
 
 input OrderLineCreateInput {
@@ -3354,21 +4925,30 @@ input OrderLineCreateInput {
 type OrderLineDelete {
   order: Order
   orderLine: OrderLine
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
 type OrderLineDiscountRemove {
   orderLine: OrderLine
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
 type OrderLineDiscountUpdate {
   orderLine: OrderLine
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
@@ -3376,9 +4956,19 @@ input OrderLineInput {
   quantity: Int!
 }
 
+type OrderLinePreferenceAssignedValue implements Node {
+  id: ID!
+  orderLine: OrderLine
+  attribute: Attribute
+  value: String
+}
+
 type OrderLineUpdate {
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
   orderLine: OrderLine
 }
@@ -3386,13 +4976,19 @@ type OrderLineUpdate {
 type OrderLinesCreate {
   order: Order
   orderLines: [OrderLine!]
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
 type OrderMarkAsPaid {
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
@@ -3404,7 +5000,10 @@ enum OrderOriginEnum {
 
 type OrderRefund {
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
@@ -3461,7 +5060,10 @@ enum OrderSettingsErrorCode {
 
 type OrderSettingsUpdate {
   orderSettings: OrderSettings
-  orderSettingsErrors: [OrderSettingsError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderSettingsErrors: [OrderSettingsError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderSettingsError!]!
 }
 
@@ -3504,7 +5106,10 @@ enum OrderStatusFilter {
 }
 
 type OrderUpdate {
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
   order: Order
 }
@@ -3517,7 +5122,10 @@ input OrderUpdateInput {
 
 type OrderUpdateShipping {
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
 }
 
@@ -3527,8 +5135,17 @@ input OrderUpdateShippingInput {
 
 type OrderVoid {
   order: Order
-  orderErrors: [OrderError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  orderErrors: [OrderError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [OrderError!]!
+}
+
+enum OwnershipClientTypeEnum {
+  JT
+  SE
+  SP
 }
 
 type Page implements Node & ObjectWithMetadata {
@@ -3544,32 +5161,47 @@ type Page implements Node & ObjectWithMetadata {
   created: DateTime!
   privateMetadata: [MetadataItem]!
   metadata: [MetadataItem]!
-  contentJson: JSONString! @deprecated(reason: "Will be removed in Saleor 4.0. Use the `content` field instead.")
+  contentJson: JSONString!
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `content` field instead."
+    )
   translation(languageCode: LanguageCodeEnum!): PageTranslation
   attributes: [SelectedAttribute!]!
 }
 
 type PageAttributeAssign {
   pageType: PageType
-  pageErrors: [PageError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  pageErrors: [PageError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PageError!]!
 }
 
 type PageAttributeUnassign {
   pageType: PageType
-  pageErrors: [PageError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  pageErrors: [PageError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PageError!]!
 }
 
 type PageBulkDelete {
   count: Int!
-  pageErrors: [PageError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  pageErrors: [PageError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PageError!]!
 }
 
 type PageBulkPublish {
   count: Int!
-  pageErrors: [PageError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  pageErrors: [PageError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PageError!]!
 }
 
@@ -3585,7 +5217,10 @@ type PageCountableEdge {
 }
 
 type PageCreate {
-  pageErrors: [PageError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  pageErrors: [PageError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PageError!]!
   page: Page
 }
@@ -3602,7 +5237,10 @@ input PageCreateInput {
 }
 
 type PageDelete {
-  pageErrors: [PageError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  pageErrors: [PageError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PageError!]!
   page: Page
 }
@@ -3651,7 +5289,10 @@ input PageInput {
 
 type PageReorderAttributeValues {
   page: Page
-  pageErrors: [PageError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  pageErrors: [PageError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PageError!]!
 }
 
@@ -3674,13 +5315,23 @@ type PageTranslatableContent implements Node {
   seoDescription: String
   title: String!
   content: JSONString
-  contentJson: JSONString @deprecated(reason: "Will be removed in Saleor 4.0. Use the `content` field instead.")
+  contentJson: JSONString
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `content` field instead."
+    )
   translation(languageCode: LanguageCodeEnum!): PageTranslation
-  page: Page @deprecated(reason: "Will be removed in Saleor 4.0. Get model fields from the root level.")
+  page: Page
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Get model fields from the root level."
+    )
+  attributeValues: [AttributeValueTranslatableContent!]!
 }
 
 type PageTranslate {
-  translationErrors: [TranslationError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  translationErrors: [TranslationError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [TranslationError!]!
   page: PageTranslatableContent
 }
@@ -3692,7 +5343,10 @@ type PageTranslation implements Node {
   title: String
   content: JSONString
   language: LanguageDisplay!
-  contentJson: JSONString @deprecated(reason: "Will be removed in Saleor 4.0. Use the `content` field instead.")
+  contentJson: JSONString
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `content` field instead."
+    )
 }
 
 input PageTranslationInput {
@@ -3709,13 +5363,22 @@ type PageType implements Node & ObjectWithMetadata {
   privateMetadata: [MetadataItem]!
   metadata: [MetadataItem]!
   attributes: [Attribute]
-  availableAttributes(filter: AttributeFilterInput, before: String, after: String, first: Int, last: Int): AttributeCountableConnection
+  availableAttributes(
+    filter: AttributeFilterInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): AttributeCountableConnection
   hasPages: Boolean
 }
 
 type PageTypeBulkDelete {
   count: Int!
-  pageErrors: [PageError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  pageErrors: [PageError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PageError!]!
 }
 
@@ -3731,7 +5394,10 @@ type PageTypeCountableEdge {
 }
 
 type PageTypeCreate {
-  pageErrors: [PageError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  pageErrors: [PageError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PageError!]!
   pageType: PageType
 }
@@ -3743,7 +5409,10 @@ input PageTypeCreateInput {
 }
 
 type PageTypeDelete {
-  pageErrors: [PageError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  pageErrors: [PageError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PageError!]!
   pageType: PageType
 }
@@ -3754,7 +5423,10 @@ input PageTypeFilterInput {
 
 type PageTypeReorderAttributes {
   pageType: PageType
-  pageErrors: [PageError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  pageErrors: [PageError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PageError!]!
 }
 
@@ -3769,7 +5441,10 @@ input PageTypeSortingInput {
 }
 
 type PageTypeUpdate {
-  pageErrors: [PageError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  pageErrors: [PageError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PageError!]!
   pageType: PageType
 }
@@ -3782,14 +5457,20 @@ input PageTypeUpdateInput {
 }
 
 type PageUpdate {
-  pageErrors: [PageError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  pageErrors: [PageError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PageError!]!
   page: Page
 }
 
 type PasswordChange {
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
@@ -3804,6 +5485,7 @@ type Payment implements Node {
   order: Order
   paymentMethodType: String!
   customerIpAddress: String
+  gmCoinValue: Float!
   chargeStatus: PaymentChargeStatusEnum!
   actions: [OrderAction]!
   total: Money
@@ -3816,7 +5498,10 @@ type Payment implements Node {
 
 type PaymentCapture {
   payment: Payment
-  paymentErrors: [PaymentError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  paymentErrors: [PaymentError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PaymentError!]!
 }
 
@@ -3877,7 +5562,10 @@ type PaymentGateway {
 
 type PaymentInitialize {
   initializedPayment: PaymentInitialized
-  paymentErrors: [PaymentError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  paymentErrors: [PaymentError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PaymentError!]!
 }
 
@@ -3892,11 +5580,15 @@ input PaymentInput {
   token: String
   amount: PositiveDecimal
   returnUrl: String
+  coinsRedeemed: Int
 }
 
 type PaymentRefund {
   payment: Payment
-  paymentErrors: [PaymentError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  paymentErrors: [PaymentError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PaymentError!]!
 }
 
@@ -3908,7 +5600,10 @@ type PaymentSource {
 
 type PaymentVoid {
   payment: Payment
-  paymentErrors: [PaymentError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  paymentErrors: [PaymentError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PaymentError!]!
 }
 
@@ -3939,7 +5634,10 @@ enum PermissionEnum {
 }
 
 type PermissionGroupCreate {
-  permissionGroupErrors: [PermissionGroupError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  permissionGroupErrors: [PermissionGroupError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PermissionGroupError!]!
   group: Group
 }
@@ -3951,7 +5649,10 @@ input PermissionGroupCreateInput {
 }
 
 type PermissionGroupDelete {
-  permissionGroupErrors: [PermissionGroupError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  permissionGroupErrors: [PermissionGroupError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PermissionGroupError!]!
   group: Group
 }
@@ -3989,7 +5690,10 @@ input PermissionGroupSortingInput {
 }
 
 type PermissionGroupUpdate {
-  permissionGroupErrors: [PermissionGroupError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  permissionGroupErrors: [PermissionGroupError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PermissionGroupError!]!
   group: Group
 }
@@ -4070,7 +5774,10 @@ input PluginStatusInChannelsInput {
 
 type PluginUpdate {
   plugin: Plugin
-  pluginsErrors: [PluginError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  pluginsErrors: [PluginError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [PluginError!]!
 }
 
@@ -4086,6 +5793,150 @@ enum PostalCodeRuleInclusionTypeEnum {
   EXCLUDE
 }
 
+type Preference implements Node {
+  id: ID!
+  productTypes(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductTypeCountableConnection!
+  inputType: PreferenceInputTypeEnum
+  name: String
+  slug: String
+  unit: MeasurementUnitsEnum
+  valueRequired: Boolean!
+}
+
+type PreferenceCountableConnection {
+  pageInfo: PageInfo!
+  edges: [PreferenceCountableEdge!]!
+  totalCount: Int
+}
+
+type PreferenceCountableEdge {
+  node: Preference!
+  cursor: String!
+}
+
+type PreferenceCreate {
+  preference: Preference
+  preferenceErrors: [PreferenceError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [PreferenceError!]!
+}
+
+input PreferenceCreateInput {
+  inputType: PreferenceInputTypeEnum
+  name: String!
+  slug: String
+  unit: MeasurementUnitsEnum
+  valueRequired: Boolean
+}
+
+type PreferenceDelete {
+  preferenceErrors: [PreferenceError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [PreferenceError!]!
+  preference: Preference
+}
+
+type PreferenceError {
+  field: String
+  message: String
+  code: PreferenceErrorCode!
+}
+
+enum PreferenceErrorCode {
+  ALREADY_EXISTS
+  GRAPHQL_ERROR
+  INVALID
+  NOT_FOUND
+  REQUIRED
+  UNIQUE
+}
+
+input PreferenceFilterInput {
+  valueRequired: Boolean
+  metadata: [MetadataFilter]
+  search: String
+  ids: [ID]
+  inCollection: ID
+  inCategory: ID
+  channel: String
+}
+
+enum PreferenceInputTypeEnum {
+  DROPDOWN
+  MULTISELECT
+  FILE
+  REFERENCE
+  NUMERIC
+  RICH_TEXT
+  BOOLEAN
+  DATE
+  DATE_TIME
+}
+
+enum PreferenceSortField {
+  NAME
+  SLUG
+  VALUE_REQUIRED
+}
+
+input PreferenceSortingInput {
+  direction: OrderDirection!
+  field: PreferenceSortField!
+}
+
+type PreferenceUpdate {
+  preference: Preference
+  preferenceErrors: [PreferenceError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [PreferenceError!]!
+}
+
+input PreferenceUpdateInput {
+  inputType: PreferenceInputTypeEnum
+  name: String!
+  slug: String
+  unit: MeasurementUnitsEnum
+  valueRequired: Boolean
+}
+
+type PreferenceValue implements Node {
+  id: ID!
+  name: String
+  slug: String
+  value: String
+  reference: ID
+  richText: JSONString
+  boolean: Boolean
+  date: Date
+  dateTime: DateTime
+}
+
+input PreferenceValueCreateInput {
+  name: String!
+  value: String
+  richText: JSONString
+}
+
+type PreferenceValueUpdate {
+  preferenceValue: PreferenceValue
+  preferenceErrors: [PreferenceError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [PreferenceError!]!
+}
+
 input PriceRangeInput {
   gte: Float
   lte: Float
@@ -4099,15 +5950,19 @@ type Product implements Node & ObjectWithMetadata {
   description: JSONString
   productType: ProductType!
   slug: String!
-  category: Category
   updatedAt: DateTime
   chargeTaxes: Boolean!
   weight: Weight
   defaultVariant: ProductVariant
   rating: Float
+  merchant: MerchantType
+  categories: [Category]
   privateMetadata: [MetadataItem]!
   metadata: [MetadataItem]!
-  descriptionJson: JSONString @deprecated(reason: "Will be removed in Saleor 4.0. Use the `description` field instead.")
+  descriptionJson: JSONString
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `description` field instead."
+    )
   thumbnail(size: Int): Image
   pricing(address: AddressInput): ProductPricingInfo
   isAvailable(address: AddressInput): Boolean
@@ -4115,19 +5970,31 @@ type Product implements Node & ObjectWithMetadata {
   attributes: [SelectedAttribute!]!
   channelListings: [ProductChannelListing!]
   mediaById(id: ID): ProductMedia
-  imageById(id: ID): ProductImage @deprecated(reason: "Will be removed in Saleor 4.0. Use the `mediaById` field instead.")
+  imageById(id: ID): ProductImage
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `mediaById` field instead."
+    )
   variants: [ProductVariant]
   media: [ProductMedia!]
-  images: [ProductImage] @deprecated(reason: "Will be removed in Saleor 4.0. Use the `media` field instead.")
+  images: [ProductImage]
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `media` field instead."
+    )
   collections: [Collection]
   translation(languageCode: LanguageCodeEnum!): ProductTranslation
   availableForPurchase: Date
   isAvailableForPurchase: Boolean
+  favorite: Boolean
+  orderedTogether: [ProductVariant]
+  usersAlsoBought: [ProductVariant]
 }
 
 type ProductAttributeAssign {
   productType: ProductType
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
@@ -4143,14 +6010,28 @@ enum ProductAttributeType {
 
 type ProductAttributeUnassign {
   productType: ProductType
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
 type ProductBulkDelete {
   count: Int!
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
+}
+
+type ProductCategory implements Node & ObjectWithMetadata {
+  category: Category
+  product: Product
+  id: ID!
+  privateMetadata: [MetadataItem]!
+  metadata: [MetadataItem]!
 }
 
 type ProductChannelListing implements Node {
@@ -4190,7 +6071,10 @@ type ProductChannelListingError {
 
 type ProductChannelListingUpdate {
   product: Product
-  productChannelListingErrors: [ProductChannelListingError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productChannelListingErrors: [ProductChannelListingError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductChannelListingError!]!
 }
 
@@ -4199,26 +6083,18 @@ input ProductChannelListingUpdateInput {
   removeChannels: [ID!]
 }
 
-type ProductCountableConnection {
-  pageInfo: PageInfo!
-  edges: [ProductCountableEdge!]!
-  totalCount: Int
-}
-
-type ProductCountableEdge {
-  node: Product!
-  cursor: String!
-}
-
 type ProductCreate {
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
   product: Product
 }
 
 input ProductCreateInput {
   attributes: [AttributeValueInput!]
-  category: ID
+  categories: [ID!]
   chargeTaxes: Boolean
   collections: [ID!]
   description: JSONString
@@ -4228,11 +6104,15 @@ input ProductCreateInput {
   seo: SeoInput
   weight: WeightScalar
   rating: Float
+  merchant: ID
   productType: ID!
 }
 
 type ProductDelete {
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
   product: Product
 }
@@ -4265,6 +6145,22 @@ enum ProductErrorCode {
   UNSUPPORTED_MEDIA_PROVIDER
 }
 
+type ProductFavorite implements Node {
+  product: Product
+  user: User
+  id: ID!
+}
+
+type ProductFavoriteToggle {
+  product: Product
+  productFavoriteErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [ProductError!]!
+  productFavorite: ProductFavorite
+}
+
 enum ProductFieldEnum {
   NAME
   DESCRIPTION
@@ -4293,6 +6189,10 @@ input ProductFilterInput {
   minimalPrice: PriceRangeInput
   productTypes: [ID]
   ids: [ID]
+  merchants: [ID]
+  postalCode: String
+  state: String
+  channel: String
 }
 
 type ProductImage {
@@ -4304,7 +6204,7 @@ type ProductImage {
 
 input ProductInput {
   attributes: [AttributeValueInput!]
-  category: ID
+  categories: [ID!]
   chargeTaxes: Boolean
   collections: [ID!]
   description: JSONString
@@ -4314,6 +6214,7 @@ input ProductInput {
   seo: SeoInput
   weight: WeightScalar
   rating: Float
+  merchant: ID
 }
 
 type ProductMedia implements Node {
@@ -4327,14 +6228,20 @@ type ProductMedia implements Node {
 
 type ProductMediaBulkDelete {
   count: Int!
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
 type ProductMediaCreate {
   product: Product
   media: ProductMedia
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
@@ -4348,14 +6255,20 @@ input ProductMediaCreateInput {
 type ProductMediaDelete {
   product: Product
   media: ProductMedia
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
 type ProductMediaReorder {
   product: Product
   media: [ProductMedia!]
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
@@ -4367,7 +6280,10 @@ enum ProductMediaType {
 type ProductMediaUpdate {
   product: Product
   media: ProductMedia
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
@@ -4377,6 +6293,7 @@ input ProductMediaUpdateInput {
 
 input ProductOrder {
   direction: OrderDirection!
+  channel: String
   attributeId: ID
   field: ProductOrderField
 }
@@ -4403,9 +6320,25 @@ type ProductPricingInfo {
   priceRangeLocalCurrency: TaxedMoneyRange
 }
 
+type ProductProductCountableConnection {
+  pageInfo: PageInfo!
+  edges: [ProductProductCountableEdge!]!
+  totalCount: Int
+  minPrice: Float
+  maxPrice: Float
+}
+
+type ProductProductCountableEdge {
+  node: Product!
+  cursor: String!
+}
+
 type ProductReorderAttributeValues {
   product: Product
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
@@ -4420,13 +6353,23 @@ type ProductTranslatableContent implements Node {
   seoDescription: String
   name: String!
   description: JSONString
-  descriptionJson: JSONString @deprecated(reason: "Will be removed in Saleor 4.0. Use the `description` field instead.")
+  descriptionJson: JSONString
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `description` field instead."
+    )
   translation(languageCode: LanguageCodeEnum!): ProductTranslation
-  product: Product @deprecated(reason: "Will be removed in Saleor 4.0. Get model fields from the root level.")
+  product: Product
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Get model fields from the root level."
+    )
+  attributeValues: [AttributeValueTranslatableContent!]!
 }
 
 type ProductTranslate {
-  translationErrors: [TranslationError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  translationErrors: [TranslationError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [TranslationError!]!
   product: Product
 }
@@ -4438,7 +6381,10 @@ type ProductTranslation implements Node {
   name: String
   description: JSONString
   language: LanguageDisplay!
-  descriptionJson: JSONString @deprecated(reason: "Will be removed in Saleor 4.0. Use the `description` field instead.")
+  descriptionJson: JSONString
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `description` field instead."
+    )
 }
 
 type ProductType implements Node & ObjectWithMetadata {
@@ -4451,16 +6397,34 @@ type ProductType implements Node & ObjectWithMetadata {
   weight: Weight
   privateMetadata: [MetadataItem]!
   metadata: [MetadataItem]!
-  products(channel: String, before: String, after: String, first: Int, last: Int): ProductCountableConnection @deprecated(reason: "Will be removed in Saleor 4.0. Use the top-level `products` query with the `productTypes` filter.")
+  products(
+    channel: String
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductProductCountableConnection
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the top-level `products` query with the `productTypes` filter."
+    )
   taxType: TaxType
   variantAttributes(variantSelection: VariantAttributeScope): [Attribute]
   productAttributes: [Attribute]
-  availableAttributes(filter: AttributeFilterInput, before: String, after: String, first: Int, last: Int): AttributeCountableConnection
+  availableAttributes(
+    filter: AttributeFilterInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): AttributeCountableConnection
 }
 
 type ProductTypeBulkDelete {
   count: Int!
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
@@ -4481,13 +6445,19 @@ type ProductTypeCountableEdge {
 }
 
 type ProductTypeCreate {
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
   productType: ProductType
 }
 
 type ProductTypeDelete {
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
   productType: ProductType
 }
@@ -4519,7 +6489,10 @@ input ProductTypeInput {
 
 type ProductTypeReorderAttributes {
   productType: ProductType
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
@@ -4535,13 +6508,19 @@ input ProductTypeSortingInput {
 }
 
 type ProductTypeUpdate {
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
   productType: ProductType
 }
 
 type ProductUpdate {
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
   product: Product
 }
@@ -4561,7 +6540,10 @@ type ProductVariant implements Node & ObjectWithMetadata {
   margin: Int
   quantityOrdered: Int
   revenue(period: ReportingPeriod): TaxedMoney
-  images: [ProductImage] @deprecated(reason: "Will be removed in Saleor 4.0. Use the `media` instead.")
+  images: [ProductImage]
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `media` instead."
+    )
   media: [ProductMedia!]
   translation(languageCode: LanguageCodeEnum!): ProductVariantTranslation
   digitalContent: DigitalContent
@@ -4572,7 +6554,10 @@ type ProductVariant implements Node & ObjectWithMetadata {
 type ProductVariantBulkCreate {
   count: Int!
   productVariants: [ProductVariant!]!
-  bulkProductErrors: [BulkProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  bulkProductErrors: [BulkProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [BulkProductError!]!
 }
 
@@ -4587,7 +6572,10 @@ input ProductVariantBulkCreateInput {
 
 type ProductVariantBulkDelete {
   count: Int!
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
@@ -4601,13 +6589,16 @@ type ProductVariantChannelListing implements Node {
 
 input ProductVariantChannelListingAddInput {
   channelId: ID!
-  price: PositiveDecimal!
+  price: PositiveDecimal
   costPrice: PositiveDecimal
 }
 
 type ProductVariantChannelListingUpdate {
   variant: ProductVariant
-  productChannelListingErrors: [ProductChannelListingError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productChannelListingErrors: [ProductChannelListingError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductChannelListingError!]!
 }
 
@@ -4623,7 +6614,10 @@ type ProductVariantCountableEdge {
 }
 
 type ProductVariantCreate {
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
   productVariant: ProductVariant
 }
@@ -4638,7 +6632,10 @@ input ProductVariantCreateInput {
 }
 
 type ProductVariantDelete {
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
   productVariant: ProductVariant
 }
@@ -4658,37 +6655,55 @@ input ProductVariantInput {
 
 type ProductVariantReorder {
   product: Product
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
 type ProductVariantReorderAttributeValues {
   productVariant: ProductVariant
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
 type ProductVariantSetDefault {
   product: Product
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
 type ProductVariantStocksCreate {
   productVariant: ProductVariant
-  bulkStockErrors: [BulkStockError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  bulkStockErrors: [BulkStockError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [BulkStockError!]!
 }
 
 type ProductVariantStocksDelete {
   productVariant: ProductVariant
-  stockErrors: [StockError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  stockErrors: [StockError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [StockError!]!
 }
 
 type ProductVariantStocksUpdate {
   productVariant: ProductVariant
-  bulkStockErrors: [BulkStockError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  bulkStockErrors: [BulkStockError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [BulkStockError!]!
 }
 
@@ -4696,11 +6711,18 @@ type ProductVariantTranslatableContent implements Node {
   id: ID!
   name: String!
   translation(languageCode: LanguageCodeEnum!): ProductVariantTranslation
-  productVariant: ProductVariant @deprecated(reason: "Will be removed in Saleor 4.0. Get model fields from the root level.")
+  productVariant: ProductVariant
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Get model fields from the root level."
+    )
+  attributeValues: [AttributeValueTranslatableContent!]!
 }
 
 type ProductVariantTranslate {
-  translationErrors: [TranslationError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  translationErrors: [TranslationError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [TranslationError!]!
   productVariant: ProductVariant
 }
@@ -4712,9 +6734,59 @@ type ProductVariantTranslation implements Node {
 }
 
 type ProductVariantUpdate {
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
   productVariant: ProductVariant
+}
+
+type ProfileAddressCreate {
+  profile: GoalsMapperProfileType
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [AccountError!]!
+  address: Address
+}
+
+input ProfileCheckoutLineInput {
+  profileId: ID
+  checkoutLines: [CheckoutLineWithPreferencesInput]
+  shipToAdvisor: Boolean!
+}
+
+enum ProfileDateOfBirthFilterEnum {
+  ALL
+  THIS_WEEK
+  NEXT_WEEK
+  MONTH
+  THIS_MONTH
+  NEXT_MONTH
+  THREE_MONTHS
+}
+
+enum ProfileGenderTypeEnum {
+  MALE
+  FEMALE
+}
+
+enum ProfileMaritalStatusEnum {
+  MARRIED
+  SINGLE
+  DIVORCED
+  SEPARATED
+  WIDOWED
+}
+
+enum ProfileSalutationTypeEnum {
+  MR
+  MS
+  MDM
+  MRS
+  DR
 }
 
 input PublishableChannelListingInput {
@@ -4724,76 +6796,382 @@ input PublishableChannelListingInput {
 }
 
 type Query {
+  taskProgressByTaskId(taskId: UUID!): TaskProgress!
+  preferences(
+    filter: PreferenceFilterInput
+    sortBy: PreferenceSortingInput
+    channel: String
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): PreferenceCountableConnection
+  preference(id: ID, slug: String): Preference
+  profile(id: ID!): GoalsMapperProfileType!
+  client(id: ID!): GoalsMapperClientType!
+  goalsmapperClient(id: Int!): GoalsMapperClientType!
+  goalsmapperClients(
+    filter: GoalsMapperClientFilterInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): GoalsMapperClientTypeCountableConnection
+  clients(
+    filter: ClientFilterInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): GoalsMapperClientTypeCountableConnection
+  checkoutClients: CheckoutClientType
+  goalsmapperCoinBalance: Int
+  deliveryZone(id: ID!): DeliveryZoneType!
+  deliveryZones: [DeliveryZoneType!]
+  merchantsDeliveringToADeliveryZone(
+    filter: DeliveryZoneFilterInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): DeliveryZoneTypeCountableConnection
+  merchant(id: ID!): MerchantType!
+  merchantBySlug(slug: String!): MerchantType!
+  merchants: [MerchantType!]
+  userTenant: UserTenantType!
   webhook(id: ID!): Webhook
   webhookEvents: [WebhookEvent]
   webhookSamplePayload(eventType: WebhookSampleEventTypeEnum!): JSONString
   warehouse(id: ID!): Warehouse
-  warehouses(filter: WarehouseFilterInput, sortBy: WarehouseSortingInput, before: String, after: String, first: Int, last: Int): WarehouseCountableConnection
-  translations(kind: TranslatableKinds!, before: String, after: String, first: Int, last: Int): TranslatableItemConnection
+  warehouses(
+    filter: WarehouseFilterInput
+    sortBy: WarehouseSortingInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): WarehouseCountableConnection
+  translations(
+    kind: TranslatableKinds!
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): TranslatableItemConnection
   translation(id: ID!, kind: TranslatableKinds!): TranslatableItem
   stock(id: ID!): Stock
-  stocks(filter: StockFilterInput, before: String, after: String, first: Int, last: Int): StockCountableConnection
+  stocks(
+    filter: StockFilterInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): StockCountableConnection
   shop: Shop!
   orderSettings: OrderSettings
   shippingZone(id: ID!, channel: String): ShippingZone
-  shippingZones(filter: ShippingZoneFilterInput, channel: String, before: String, after: String, first: Int, last: Int): ShippingZoneCountableConnection
+  shippingZones(
+    filter: ShippingZoneFilterInput
+    channel: String
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ShippingZoneCountableConnection
+  shippingMethods(
+    filter: ShippingMethodFilterInput
+    channel: String
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ShippingMethodCountableConnection
   digitalContent(id: ID!): DigitalContent
-  digitalContents(before: String, after: String, first: Int, last: Int): DigitalContentCountableConnection
-  categories(filter: CategoryFilterInput, sortBy: CategorySortingInput, level: Int, before: String, after: String, first: Int, last: Int): CategoryCountableConnection
+  digitalContents(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): DigitalContentCountableConnection
+  categories(
+    filter: CategoryFilterInput
+    sortBy: CategorySortingInput
+    level: Int
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): CategoryCountableConnection
   category(id: ID, slug: String): Category
   collection(id: ID, slug: String, channel: String): Collection
-  collections(filter: CollectionFilterInput, sortBy: CollectionSortingInput, channel: String, before: String, after: String, first: Int, last: Int): CollectionCountableConnection
+  collections(
+    filter: CollectionFilterInput
+    sortBy: CollectionSortingInput
+    channel: String
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): CollectionCountableConnection
   product(id: ID, slug: String, channel: String): Product
-  products(filter: ProductFilterInput, sortBy: ProductOrder, channel: String, before: String, after: String, first: Int, last: Int): ProductCountableConnection
+  products(
+    filter: ProductFilterInput
+    sortBy: ProductOrder
+    channel: String
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductProductCountableConnection
   productType(id: ID!): ProductType
-  productTypes(filter: ProductTypeFilterInput, sortBy: ProductTypeSortingInput, before: String, after: String, first: Int, last: Int): ProductTypeCountableConnection
+  productTypes(
+    filter: ProductTypeFilterInput
+    sortBy: ProductTypeSortingInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductTypeCountableConnection
   productVariant(id: ID, sku: String, channel: String): ProductVariant
-  productVariants(ids: [ID], channel: String, filter: ProductVariantFilterInput, before: String, after: String, first: Int, last: Int): ProductVariantCountableConnection
-  reportProductSales(period: ReportingPeriod!, channel: String!, before: String, after: String, first: Int, last: Int): ProductVariantCountableConnection
+  productVariants(
+    ids: [ID]
+    channel: String
+    filter: ProductVariantFilterInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductVariantCountableConnection
+  reportProductSales(
+    period: ReportingPeriod!
+    channel: String!
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductVariantCountableConnection
   payment(id: ID!): Payment
-  payments(filter: PaymentFilterInput, before: String, after: String, first: Int, last: Int): PaymentCountableConnection
+  payments(
+    filter: PaymentFilterInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): PaymentCountableConnection
   page(id: ID, slug: String): Page
-  pages(sortBy: PageSortingInput, filter: PageFilterInput, before: String, after: String, first: Int, last: Int): PageCountableConnection
+  pages(
+    sortBy: PageSortingInput
+    filter: PageFilterInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): PageCountableConnection
   pageType(id: ID!): PageType
-  pageTypes(sortBy: PageTypeSortingInput, filter: PageTypeFilterInput, before: String, after: String, first: Int, last: Int): PageTypeCountableConnection
-  homepageEvents(before: String, after: String, first: Int, last: Int): OrderEventCountableConnection
+  pageTypes(
+    sortBy: PageTypeSortingInput
+    filter: PageTypeFilterInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): PageTypeCountableConnection
+  homepageEvents(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): OrderEventCountableConnection
   order(id: ID!): Order
-  orders(sortBy: OrderSortingInput, filter: OrderFilterInput, channel: String, before: String, after: String, first: Int, last: Int): OrderCountableConnection
-  draftOrders(sortBy: OrderSortingInput, filter: OrderDraftFilterInput, before: String, after: String, first: Int, last: Int): OrderCountableConnection
+  orders(
+    sortBy: OrderSortingInput
+    filter: OrderFilterInput
+    channel: String
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): OrderCountableConnection
+  advisorOrders(
+    sortBy: OrderSortingInput
+    filter: OrderFilterInput
+    channel: String
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): OrderCountableConnection
+  draftOrders(
+    sortBy: OrderSortingInput
+    filter: OrderDraftFilterInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): OrderCountableConnection
   ordersTotal(period: ReportingPeriod, channel: String): TaxedMoney
   orderByToken(token: UUID!): Order
+  fcUnconfirmedOrders(
+    sortBy: OrderSortingInput
+    filter: OrderDraftFilterInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): OrderCountableConnection
+  bulkOrder(id: ID!): BulkOrderReference
+  bulkOrders(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): BulkOrderReferenceCountableConnection
   menu(channel: String, id: ID, name: String, slug: String): Menu
-  menus(channel: String, sortBy: MenuSortingInput, filter: MenuFilterInput, before: String, after: String, first: Int, last: Int): MenuCountableConnection
+  menus(
+    channel: String
+    sortBy: MenuSortingInput
+    filter: MenuFilterInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): MenuCountableConnection
   menuItem(id: ID!, channel: String): MenuItem
-  menuItems(channel: String, sortBy: MenuItemSortingInput, filter: MenuItemFilterInput, before: String, after: String, first: Int, last: Int): MenuItemCountableConnection
+  menuItems(
+    channel: String
+    sortBy: MenuItemSortingInput
+    filter: MenuItemFilterInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): MenuItemCountableConnection
   giftCard(id: ID!): GiftCard
-  giftCards(before: String, after: String, first: Int, last: Int): GiftCardCountableConnection
+  giftCards(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): GiftCardCountableConnection
   plugin(id: ID!): Plugin
-  plugins(filter: PluginFilterInput, sortBy: PluginSortingInput, before: String, after: String, first: Int, last: Int): PluginCountableConnection
+  plugins(
+    filter: PluginFilterInput
+    sortBy: PluginSortingInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): PluginCountableConnection
   sale(id: ID!, channel: String): Sale
-  sales(filter: SaleFilterInput, sortBy: SaleSortingInput, query: String, channel: String, before: String, after: String, first: Int, last: Int): SaleCountableConnection
+  sales(
+    filter: SaleFilterInput
+    sortBy: SaleSortingInput
+    query: String
+    channel: String
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): SaleCountableConnection
   voucher(id: ID!, channel: String): Voucher
-  vouchers(filter: VoucherFilterInput, sortBy: VoucherSortingInput, query: String, channel: String, before: String, after: String, first: Int, last: Int): VoucherCountableConnection
+  vouchers(
+    filter: VoucherFilterInput
+    sortBy: VoucherSortingInput
+    query: String
+    channel: String
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): VoucherCountableConnection
   exportFile(id: ID!): ExportFile
-  exportFiles(filter: ExportFileFilterInput, sortBy: ExportFileSortingInput, before: String, after: String, first: Int, last: Int): ExportFileCountableConnection
+  exportFiles(
+    filter: ExportFileFilterInput
+    sortBy: ExportFileSortingInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ExportFileCountableConnection
   taxTypes: [TaxType]
   checkout(token: UUID): Checkout
-  checkouts(channel: String, before: String, after: String, first: Int, last: Int): CheckoutCountableConnection
-  checkoutLines(before: String, after: String, first: Int, last: Int): CheckoutLineCountableConnection
+  checkouts(
+    channel: String
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): CheckoutCountableConnection
+  checkoutLines(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): CheckoutLineCountableConnection
+  userDraftCheckouts(
+    channel: String
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): CheckoutCountableConnection
+  userDraftCheckoutsShippingPrice(channel: String): TaxedMoney
+  coinsAvailableForCheckouts(channel: String, tokens: [UUID!]): Int
   channel(id: ID): Channel
   channels: [Channel!]
-  attributes(filter: AttributeFilterInput, sortBy: AttributeSortingInput, channel: String, before: String, after: String, first: Int, last: Int): AttributeCountableConnection
+  attributes(
+    filter: AttributeFilterInput
+    sortBy: AttributeSortingInput
+    channel: String
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): AttributeCountableConnection
   attribute(id: ID, slug: String): Attribute
   appsInstallations: [AppInstallation!]!
-  apps(filter: AppFilterInput, sortBy: AppSortingInput, before: String, after: String, first: Int, last: Int): AppCountableConnection
+  apps(
+    filter: AppFilterInput
+    sortBy: AppSortingInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): AppCountableConnection
   app(id: ID): App
-  addressValidationRules(countryCode: CountryCode!, countryArea: String, city: String, cityArea: String): AddressValidationData
+  addressValidationRules(
+    countryCode: CountryCode!
+    countryArea: String
+    city: String
+    cityArea: String
+  ): AddressValidationData
   address(id: ID!): Address
-  customers(filter: CustomerFilterInput, sortBy: UserSortingInput, before: String, after: String, first: Int, last: Int): UserCountableConnection
-  permissionGroups(filter: PermissionGroupFilterInput, sortBy: PermissionGroupSortingInput, before: String, after: String, first: Int, last: Int): GroupCountableConnection
+  customers(
+    filter: CustomerFilterInput
+    sortBy: UserSortingInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): UserCountableConnection
+  permissionGroups(
+    filter: PermissionGroupFilterInput
+    sortBy: PermissionGroupSortingInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): GroupCountableConnection
   permissionGroup(id: ID!): Group
   me: User
-  staffUsers(filter: StaffUserInput, sortBy: UserSortingInput, before: String, after: String, first: Int, last: Int): UserCountableConnection
+  staffUsers(
+    filter: StaffUserInput
+    sortBy: UserSortingInput
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): UserCountableConnection
   user(id: ID, email: String): User
   _entities(representations: [_Any]): [_Entity]
   _service: _Service
@@ -4807,8 +7185,21 @@ type ReducedRate {
 type RefreshToken {
   token: String
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
+}
+
+type RemoveClientsCheckout {
+  checkoutClients: CheckoutClientType!
+  checkoutClientErrorCodes: [CheckoutClientError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [CheckoutClientError!]!
+  checkoutClient: CheckoutClientType
 }
 
 input ReorderInput {
@@ -4823,24 +7214,47 @@ enum ReportingPeriod {
 
 type RequestEmailChange {
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
 type RequestPasswordReset {
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
-type Sale implements Node {
+type Sale implements Node & ObjectWithMetadata {
   id: ID!
   name: String!
   type: SaleType!
   startDate: DateTime!
   endDate: DateTime
-  categories(before: String, after: String, first: Int, last: Int): CategoryCountableConnection
-  collections(before: String, after: String, first: Int, last: Int): CollectionCountableConnection
-  products(before: String, after: String, first: Int, last: Int): ProductCountableConnection
+  privateMetadata: [MetadataItem]!
+  metadata: [MetadataItem]!
+  categories(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): CategoryCountableConnection
+  collections(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): CollectionCountableConnection
+  products(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductProductCountableConnection
   translation(languageCode: LanguageCodeEnum!): SaleTranslation
   channelListings: [SaleChannelListing!]
   discountValue: Float
@@ -4849,13 +7263,19 @@ type Sale implements Node {
 
 type SaleAddCatalogues {
   sale: Sale
-  discountErrors: [DiscountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  discountErrors: [DiscountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [DiscountError!]!
 }
 
 type SaleBulkDelete {
   count: Int!
-  discountErrors: [DiscountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  discountErrors: [DiscountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [DiscountError!]!
 }
 
@@ -4878,7 +7298,10 @@ input SaleChannelListingInput {
 
 type SaleChannelListingUpdate {
   sale: Sale
-  discountErrors: [DiscountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  discountErrors: [DiscountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [DiscountError!]!
 }
 
@@ -4894,13 +7317,19 @@ type SaleCountableEdge {
 }
 
 type SaleCreate {
-  discountErrors: [DiscountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  discountErrors: [DiscountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [DiscountError!]!
   sale: Sale
 }
 
 type SaleDelete {
-  discountErrors: [DiscountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  discountErrors: [DiscountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [DiscountError!]!
   sale: Sale
 }
@@ -4910,6 +7339,7 @@ input SaleFilterInput {
   saleType: DiscountValueTypeEnum
   started: DateTimeRangeInput
   search: String
+  metadata: [MetadataFilter]
 }
 
 input SaleInput {
@@ -4925,7 +7355,10 @@ input SaleInput {
 
 type SaleRemoveCatalogues {
   sale: Sale
-  discountErrors: [DiscountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  discountErrors: [DiscountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [DiscountError!]!
 }
 
@@ -4939,6 +7372,7 @@ enum SaleSortField {
 
 input SaleSortingInput {
   direction: OrderDirection!
+  channel: String
   field: SaleSortField!
 }
 
@@ -4946,11 +7380,17 @@ type SaleTranslatableContent implements Node {
   id: ID!
   name: String!
   translation(languageCode: LanguageCodeEnum!): SaleTranslation
-  sale: Sale @deprecated(reason: "Will be removed in Saleor 4.0. Get model fields from the root level.")
+  sale: Sale
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Get model fields from the root level."
+    )
 }
 
 type SaleTranslate {
-  translationErrors: [TranslationError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  translationErrors: [TranslationError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [TranslationError!]!
   sale: Sale
 }
@@ -4967,7 +7407,10 @@ enum SaleType {
 }
 
 type SaleUpdate {
-  discountErrors: [DiscountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  discountErrors: [DiscountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [DiscountError!]!
   sale: Sale
 }
@@ -4987,7 +7430,10 @@ type SetPassword {
   refreshToken: String
   csrfToken: String
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
@@ -5027,7 +7473,13 @@ type ShippingMethod implements Node & ObjectWithMetadata {
   maximumOrderPrice: Money
   minimumOrderPrice: Money
   postalCodeRules: [ShippingMethodPostalCodeRule]
-  excludedProducts(before: String, after: String, first: Int, last: Int): ProductCountableConnection
+  excludedProducts(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductProductCountableConnection
+  warehouses: [Warehouse!]!
 }
 
 type ShippingMethodChannelListing implements Node {
@@ -5052,8 +7504,28 @@ input ShippingMethodChannelListingInput {
 
 type ShippingMethodChannelListingUpdate {
   shippingMethod: ShippingMethod
-  shippingErrors: [ShippingError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shippingErrors: [ShippingError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShippingError!]!
+}
+
+type ShippingMethodCountableConnection {
+  pageInfo: PageInfo!
+  edges: [ShippingMethodCountableEdge!]!
+  totalCount: Int
+}
+
+type ShippingMethodCountableEdge {
+  node: ShippingMethod!
+  cursor: String!
+}
+
+input ShippingMethodFilterInput {
+  channels: [ID]
+  merchant: ID
+  products: [ID]
 }
 
 type ShippingMethodPostalCodeRule implements Node {
@@ -5068,7 +7540,10 @@ type ShippingMethodTranslatableContent implements Node {
   name: String!
   description: JSONString
   translation(languageCode: LanguageCodeEnum!): ShippingMethodTranslation
-  shippingMethod: ShippingMethod @deprecated(reason: "Will be removed in Saleor 4.0. Get model fields from the root level.")
+  shippingMethod: ShippingMethod
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Get model fields from the root level."
+    )
 }
 
 type ShippingMethodTranslation implements Node {
@@ -5090,27 +7565,39 @@ input ShippingPostalCodeRulesCreateInputRange {
 
 type ShippingPriceBulkDelete {
   count: Int!
-  shippingErrors: [ShippingError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shippingErrors: [ShippingError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShippingError!]!
 }
 
 type ShippingPriceCreate {
   shippingZone: ShippingZone
   shippingMethod: ShippingMethod
-  shippingErrors: [ShippingError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shippingErrors: [ShippingError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShippingError!]!
 }
 
 type ShippingPriceDelete {
   shippingMethod: ShippingMethod
   shippingZone: ShippingZone
-  shippingErrors: [ShippingError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shippingErrors: [ShippingError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShippingError!]!
 }
 
 type ShippingPriceExcludeProducts {
   shippingMethod: ShippingMethod
-  shippingErrors: [ShippingError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shippingErrors: [ShippingError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShippingError!]!
 }
 
@@ -5134,12 +7621,18 @@ input ShippingPriceInput {
 
 type ShippingPriceRemoveProductFromExclude {
   shippingMethod: ShippingMethod
-  shippingErrors: [ShippingError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shippingErrors: [ShippingError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShippingError!]!
 }
 
 type ShippingPriceTranslate {
-  translationErrors: [TranslationError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  translationErrors: [TranslationError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [TranslationError!]!
   shippingMethod: ShippingMethod
 }
@@ -5152,7 +7645,10 @@ input ShippingPriceTranslationInput {
 type ShippingPriceUpdate {
   shippingZone: ShippingZone
   shippingMethod: ShippingMethod
-  shippingErrors: [ShippingError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shippingErrors: [ShippingError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShippingError!]!
 }
 
@@ -5172,7 +7668,10 @@ type ShippingZone implements Node & ObjectWithMetadata {
 
 type ShippingZoneBulkDelete {
   count: Int!
-  shippingErrors: [ShippingError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shippingErrors: [ShippingError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShippingError!]!
 }
 
@@ -5188,7 +7687,10 @@ type ShippingZoneCountableEdge {
 }
 
 type ShippingZoneCreate {
-  shippingErrors: [ShippingError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shippingErrors: [ShippingError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShippingError!]!
   shippingZone: ShippingZone
 }
@@ -5203,7 +7705,10 @@ input ShippingZoneCreateInput {
 }
 
 type ShippingZoneDelete {
-  shippingErrors: [ShippingError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shippingErrors: [ShippingError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShippingError!]!
   shippingZone: ShippingZone
 }
@@ -5211,10 +7716,15 @@ type ShippingZoneDelete {
 input ShippingZoneFilterInput {
   search: String
   channels: [ID]
+  merchant: ID
+  products: [ID]
 }
 
 type ShippingZoneUpdate {
-  shippingErrors: [ShippingError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shippingErrors: [ShippingError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShippingError!]!
   shippingZone: ShippingZone
 }
@@ -5231,9 +7741,15 @@ input ShippingZoneUpdateInput {
 }
 
 type Shop {
-  availablePaymentGateways(currency: String, channel: String): [PaymentGateway!]!
+  availablePaymentGateways(
+    currency: String
+    channel: String
+  ): [PaymentGateway!]!
   availableExternalAuthentications: [ExternalAuthentication!]!
-  availableShippingMethods(channel: String!, address: AddressInput): [ShippingMethod]
+  availableShippingMethods(
+    channel: String!
+    address: AddressInput
+  ): [ShippingMethod]
   countries(languageCode: LanguageCodeEnum): [CountryDisplay!]!
   defaultCountry: CountryDisplay
   defaultMailSenderName: String
@@ -5263,13 +7779,19 @@ type Shop {
 
 type ShopAddressUpdate {
   shop: Shop
-  shopErrors: [ShopError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shopErrors: [ShopError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShopError!]!
 }
 
 type ShopDomainUpdate {
   shop: Shop
-  shopErrors: [ShopError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shopErrors: [ShopError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShopError!]!
 }
 
@@ -5291,7 +7813,10 @@ enum ShopErrorCode {
 
 type ShopFetchTaxRates {
   shop: Shop
-  shopErrors: [ShopError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shopErrors: [ShopError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShopError!]!
 }
 
@@ -5313,7 +7838,10 @@ input ShopSettingsInput {
 
 type ShopSettingsTranslate {
   shop: Shop
-  translationErrors: [TranslationError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  translationErrors: [TranslationError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [TranslationError!]!
 }
 
@@ -5324,7 +7852,10 @@ input ShopSettingsTranslationInput {
 
 type ShopSettingsUpdate {
   shop: Shop
-  shopErrors: [ShopError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shopErrors: [ShopError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShopError!]!
 }
 
@@ -5342,12 +7873,18 @@ input SiteDomainInput {
 
 type StaffBulkDelete {
   count: Int!
-  staffErrors: [StaffError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  staffErrors: [StaffError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [StaffError!]!
 }
 
 type StaffCreate {
-  staffErrors: [StaffError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  staffErrors: [StaffError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [StaffError!]!
   user: User
 }
@@ -5363,7 +7900,10 @@ input StaffCreateInput {
 }
 
 type StaffDelete {
-  staffErrors: [StaffError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  staffErrors: [StaffError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [StaffError!]!
   user: User
 }
@@ -5391,13 +7931,19 @@ type StaffNotificationRecipient implements Node {
 }
 
 type StaffNotificationRecipientCreate {
-  shopErrors: [ShopError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shopErrors: [ShopError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShopError!]!
   staffNotificationRecipient: StaffNotificationRecipient
 }
 
 type StaffNotificationRecipientDelete {
-  shopErrors: [ShopError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shopErrors: [ShopError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShopError!]!
   staffNotificationRecipient: StaffNotificationRecipient
 }
@@ -5409,13 +7955,19 @@ input StaffNotificationRecipientInput {
 }
 
 type StaffNotificationRecipientUpdate {
-  shopErrors: [ShopError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  shopErrors: [ShopError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ShopError!]!
   staffNotificationRecipient: StaffNotificationRecipient
 }
 
 type StaffUpdate {
-  staffErrors: [StaffError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  staffErrors: [StaffError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [StaffError!]!
   user: User
 }
@@ -5484,6 +8036,30 @@ input StockInput {
   quantity: Int!
 }
 
+type TaskProgress implements Node {
+  id: ID!
+  taskId: UUID!
+  periodicTaskName: String
+  taskName: String
+  taskArgs: String
+  status: TaskProgressStatusEnum
+  dateCreated: DateTime
+  dateDone: DateTime
+  traceback: String
+}
+
+enum TaskProgressStatusEnum {
+  PENDING
+  RECEIVED
+  STARTED
+  SUCCESS
+  FAILURE
+  REVOKED
+  REJECTED
+  RETRY
+  IGNORED
+}
+
 type TaxType {
   description: String
   taxCode: String
@@ -5499,6 +8075,49 @@ type TaxedMoney {
 type TaxedMoneyRange {
   start: TaxedMoney
   stop: TaxedMoney
+}
+
+type TenantCreate {
+  tenant: TenantType
+  tenantErrors: [TenantError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [TenantError!]!
+}
+
+type TenantError {
+  field: String
+  message: String
+  code: TenantErrorCodeEnum!
+}
+
+enum TenantErrorCodeEnum {
+  GRAPHQL_ERROR
+  INVALID
+  NOT_FOUND
+  REQUIRED
+}
+
+input TenantInput {
+  name: String
+  country: CountryCode
+  slug: String!
+  currencyCode: String!
+}
+
+type TenantType implements Node {
+  id: ID!
+  name: String!
+  country: CountryDisplay!
+  slug: String!
+  currencyCode: String!
+  users(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): UserTenantTypeCountableConnection!
 }
 
 type Transaction implements Node {
@@ -5526,7 +8145,18 @@ enum TransactionKind {
   CANCEL
 }
 
-union TranslatableItem = ProductTranslatableContent | CollectionTranslatableContent | CategoryTranslatableContent | AttributeTranslatableContent | AttributeValueTranslatableContent | ProductVariantTranslatableContent | PageTranslatableContent | ShippingMethodTranslatableContent | SaleTranslatableContent | VoucherTranslatableContent | MenuItemTranslatableContent
+union TranslatableItem =
+    ProductTranslatableContent
+  | CollectionTranslatableContent
+  | CategoryTranslatableContent
+  | AttributeTranslatableContent
+  | AttributeValueTranslatableContent
+  | ProductVariantTranslatableContent
+  | PageTranslatableContent
+  | ShippingMethodTranslatableContent
+  | SaleTranslatableContent
+  | VoucherTranslatableContent
+  | MenuItemTranslatableContent
 
 type TranslatableItemConnection {
   pageInfo: PageInfo!
@@ -5574,19 +8204,43 @@ input TranslationInput {
 
 scalar UUID
 
+type UpdateCheckoutLinePreference {
+  preference: CheckoutLinePreferenceAssignedValue
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [CheckoutError!]!
+}
+
+type UpdateClientEmail {
+  client: GoalsMapperClientType
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [AccountError!]!
+}
+
 input UpdateInvoiceInput {
   number: String
   url: String
 }
 
 type UpdateMetadata {
-  metadataErrors: [MetadataError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  metadataErrors: [MetadataError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [MetadataError!]!
   item: ObjectWithMetadata
 }
 
 type UpdatePrivateMetadata {
-  metadataErrors: [MetadataError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  metadataErrors: [MetadataError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [MetadataError!]!
   item: ObjectWithMetadata
 }
@@ -5615,13 +8269,27 @@ type User implements Node & ObjectWithMetadata {
   dateJoined: DateTime!
   defaultShippingAddress: Address
   defaultBillingAddress: Address
+  channel: Channel
   privateMetadata: [MetadataItem]!
   metadata: [MetadataItem]!
   addresses: [Address]
-  checkout: Checkout @deprecated(reason: "Will be removed in Saleor 4.0. Use the `checkout_tokens` field to fetch the user checkouts.")
+  checkout: Checkout
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Use the `checkout_tokens` field to fetch the user checkouts."
+    )
   checkoutTokens(channel: String): [UUID!]
-  giftCards(before: String, after: String, first: Int, last: Int): GiftCardCountableConnection
-  orders(before: String, after: String, first: Int, last: Int): OrderCountableConnection
+  giftCards(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): GiftCardCountableConnection
+  orders(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): OrderCountableConnection
   userPermissions: [UserPermission]
   permissionGroups: [Group]
   editableGroups: [Group]
@@ -5633,20 +8301,38 @@ type User implements Node & ObjectWithMetadata {
 
 type UserAvatarDelete {
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
 type UserAvatarUpdate {
   user: User
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
 type UserBulkSetActive {
   count: Int!
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
+}
+
+type UserCheckoutDelete {
+  deleted: Boolean
+  checkoutErrors: [CheckoutError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [CheckoutError!]!
 }
 
 type UserCountableConnection {
@@ -5691,6 +8377,50 @@ input UserSortingInput {
   field: UserSortField!
 }
 
+type UserTenantCreate {
+  userTenant: UserTenantType
+  userTenantErrors: [UserTenantError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
+  errors: [UserTenantError!]!
+}
+
+type UserTenantError {
+  field: String
+  message: String
+  code: UserTenantErrorCodeEnum!
+}
+
+enum UserTenantErrorCodeEnum {
+  GRAPHQL_ERROR
+  INVALID
+  NOT_FOUND
+  REQUIRED
+}
+
+input UserTenantInput {
+  user: ID!
+  tenant: ID!
+}
+
+type UserTenantType implements Node {
+  id: ID!
+  user: User!
+  tenant: TenantType
+}
+
+type UserTenantTypeCountableConnection {
+  pageInfo: PageInfo!
+  edges: [UserTenantTypeCountableEdge!]!
+  totalCount: Int
+}
+
+type UserTenantTypeCountableEdge {
+  node: UserTenantType!
+  cursor: String!
+}
+
 type VAT {
   countryCode: String!
   standardRate: Float
@@ -5706,14 +8436,20 @@ enum VariantAttributeScope {
 type VariantMediaAssign {
   productVariant: ProductVariant
   media: ProductMedia
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
 type VariantMediaUnassign {
   productVariant: ProductVariant
   media: ProductMedia
-  productErrors: [ProductError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  productErrors: [ProductError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [ProductError!]!
 }
 
@@ -5730,7 +8466,10 @@ type VerifyToken {
   user: User
   isValid: Boolean!
   payload: GenericScalar
-  accountErrors: [AccountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  accountErrors: [AccountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [AccountError!]!
 }
 
@@ -5750,7 +8489,7 @@ enum VolumeUnitsEnum {
   ACRE_FT
 }
 
-type Voucher implements Node {
+type Voucher implements Node & ObjectWithMetadata {
   id: ID!
   name: String
   type: VoucherTypeEnum!
@@ -5764,9 +8503,26 @@ type Voucher implements Node {
   onlyForStaff: Boolean!
   discountValueType: DiscountValueTypeEnum!
   minCheckoutItemsQuantity: Int
-  categories(before: String, after: String, first: Int, last: Int): CategoryCountableConnection
-  collections(before: String, after: String, first: Int, last: Int): CollectionCountableConnection
-  products(before: String, after: String, first: Int, last: Int): ProductCountableConnection
+  privateMetadata: [MetadataItem]!
+  metadata: [MetadataItem]!
+  categories(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): CategoryCountableConnection
+  collections(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): CollectionCountableConnection
+  products(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ProductProductCountableConnection
   countries: [CountryDisplay]
   translation(languageCode: LanguageCodeEnum!): VoucherTranslation
   discountValue: Float
@@ -5777,13 +8533,19 @@ type Voucher implements Node {
 
 type VoucherAddCatalogues {
   voucher: Voucher
-  discountErrors: [DiscountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  discountErrors: [DiscountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [DiscountError!]!
 }
 
 type VoucherBulkDelete {
   count: Int!
-  discountErrors: [DiscountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  discountErrors: [DiscountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [DiscountError!]!
 }
 
@@ -5808,7 +8570,10 @@ input VoucherChannelListingInput {
 
 type VoucherChannelListingUpdate {
   voucher: Voucher
-  discountErrors: [DiscountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  discountErrors: [DiscountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [DiscountError!]!
 }
 
@@ -5824,13 +8589,19 @@ type VoucherCountableEdge {
 }
 
 type VoucherCreate {
-  discountErrors: [DiscountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  discountErrors: [DiscountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [DiscountError!]!
   voucher: Voucher
 }
 
 type VoucherDelete {
-  discountErrors: [DiscountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  discountErrors: [DiscountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [DiscountError!]!
   voucher: Voucher
 }
@@ -5847,6 +8618,7 @@ input VoucherFilterInput {
   discountType: [VoucherDiscountType]
   started: DateTimeRangeInput
   search: String
+  metadata: [MetadataFilter]
 }
 
 input VoucherInput {
@@ -5869,7 +8641,10 @@ input VoucherInput {
 
 type VoucherRemoveCatalogues {
   voucher: Voucher
-  discountErrors: [DiscountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  discountErrors: [DiscountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [DiscountError!]!
 }
 
@@ -5885,6 +8660,7 @@ enum VoucherSortField {
 
 input VoucherSortingInput {
   direction: OrderDirection!
+  channel: String
   field: VoucherSortField!
 }
 
@@ -5892,11 +8668,17 @@ type VoucherTranslatableContent implements Node {
   id: ID!
   name: String
   translation(languageCode: LanguageCodeEnum!): VoucherTranslation
-  voucher: Voucher @deprecated(reason: "Will be removed in Saleor 4.0. Get model fields from the root level.")
+  voucher: Voucher
+    @deprecated(
+      reason: "Will be removed in Saleor 4.0. Get model fields from the root level."
+    )
 }
 
 type VoucherTranslate {
-  translationErrors: [TranslationError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  translationErrors: [TranslationError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [TranslationError!]!
   voucher: Voucher
 }
@@ -5914,7 +8696,10 @@ enum VoucherTypeEnum {
 }
 
 type VoucherUpdate {
-  discountErrors: [DiscountError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  discountErrors: [DiscountError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [DiscountError!]!
   voucher: Voucher
 }
@@ -5923,12 +8708,21 @@ type Warehouse implements Node & ObjectWithMetadata {
   id: ID!
   name: String!
   slug: String!
-  shippingZones(before: String, after: String, first: Int, last: Int): ShippingZoneCountableConnection!
+  shippingZones(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): ShippingZoneCountableConnection!
   address: Address!
   email: String!
   privateMetadata: [MetadataItem]!
   metadata: [MetadataItem]!
-  companyName: String! @deprecated(reason: "Use address.CompanyName. This field will be removed in Saleor 4.0.")
+  companyName: String!
+    @deprecated(
+      reason: "Use address.CompanyName. This field will be removed in Saleor 4.0."
+    )
+  countries: [CountryDisplay]
 }
 
 type WarehouseCountableConnection {
@@ -5943,7 +8737,10 @@ type WarehouseCountableEdge {
 }
 
 type WarehouseCreate {
-  warehouseErrors: [WarehouseError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  warehouseErrors: [WarehouseError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [WarehouseError!]!
   warehouse: Warehouse
 }
@@ -5957,7 +8754,10 @@ input WarehouseCreateInput {
 }
 
 type WarehouseDelete {
-  warehouseErrors: [WarehouseError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  warehouseErrors: [WarehouseError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [WarehouseError!]!
   warehouse: Warehouse
 }
@@ -5983,13 +8783,19 @@ input WarehouseFilterInput {
 }
 
 type WarehouseShippingZoneAssign {
-  warehouseErrors: [WarehouseError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  warehouseErrors: [WarehouseError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [WarehouseError!]!
   warehouse: Warehouse
 }
 
 type WarehouseShippingZoneUnassign {
-  warehouseErrors: [WarehouseError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  warehouseErrors: [WarehouseError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [WarehouseError!]!
   warehouse: Warehouse
 }
@@ -6004,7 +8810,10 @@ input WarehouseSortingInput {
 }
 
 type WarehouseUpdate {
-  warehouseErrors: [WarehouseError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  warehouseErrors: [WarehouseError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [WarehouseError!]!
   warehouse: Warehouse
 }
@@ -6027,7 +8836,10 @@ type Webhook implements Node {
 }
 
 type WebhookCreate {
-  webhookErrors: [WebhookError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  webhookErrors: [WebhookError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [WebhookError!]!
   webhook: Webhook
 }
@@ -6042,7 +8854,10 @@ input WebhookCreateInput {
 }
 
 type WebhookDelete {
-  webhookErrors: [WebhookError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  webhookErrors: [WebhookError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [WebhookError!]!
   webhook: Webhook
 }
@@ -6099,6 +8914,8 @@ enum WebhookEventTypeEnum {
   PAYMENT_PROCESS
   PAYMENT_REFUND
   PAYMENT_VOID
+  TRANSLATION_CREATED
+  TRANSLATION_UPDATED
 }
 
 enum WebhookSampleEventTypeEnum {
@@ -6133,10 +8950,15 @@ enum WebhookSampleEventTypeEnum {
   PAYMENT_PROCESS
   PAYMENT_REFUND
   PAYMENT_VOID
+  TRANSLATION_CREATED
+  TRANSLATION_UPDATED
 }
 
 type WebhookUpdate {
-  webhookErrors: [WebhookError!]! @deprecated(reason: "Use errors field instead. This field will be removed in Saleor 4.0.")
+  webhookErrors: [WebhookError!]!
+    @deprecated(
+      reason: "Use errors field instead. This field will be removed in Saleor 4.0."
+    )
   errors: [WebhookError!]!
   webhook: Webhook
 }
@@ -6167,7 +8989,21 @@ enum WeightUnitsEnum {
 
 scalar _Any
 
-union _Entity = App | Address | User | Group | ProductVariant | Product | ProductType | Collection | Category | ProductMedia | ProductImage | PageType
+union _Entity =
+    App
+  | Address
+  | User
+  | Group
+  | ProductVariant
+  | Product
+  | ProductType
+  | Collection
+  | Category
+  | ProductMedia
+  | ProductImage
+  | ProductCategory
+  | ProductFavorite
+  | PageType
 
 type _Service {
   sdl: String
