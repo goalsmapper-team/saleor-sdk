@@ -66,6 +66,7 @@ export interface SaleorClient {
 interface SaleorClientFetchOpts {
   autologin?: boolean;
   fetchOpts?: FetchConfig;
+  useLocalStorage?: boolean;
 }
 
 export interface SaleorClientOpts {

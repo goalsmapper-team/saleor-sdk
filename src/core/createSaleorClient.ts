@@ -13,15 +13,15 @@ export const createSaleorClient = ({
   opts = {},
 }: SaleorClientOpts): SaleorClient => {
   let _channel = channel;
-  const { autologin = true, fetchOpts } = opts;
+  const { autologin = true, fetchOpts, useLocalStorage = true } = opts;
 
   const setChannel = (channel: string): string => {
     _channel = channel;
     return _channel;
   };
 
-  createStorage(autologin);
-  const apolloClient = createApolloClient(apiUrl, autologin, fetchOpts);
+  createStorage(useLocalStorage);
+  const apolloClient = createApolloClient(apiUrl, useLocalStorage, fetchOpts);
   const coreInternals = { apolloClient, channel: _channel };
   const authSDK = auth(coreInternals);
   const userSDK = user(coreInternals);

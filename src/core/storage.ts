@@ -15,13 +15,13 @@ export let storage: {
   clear: () => void;
 };
 
-export const createStorage = (autologinEnabled: boolean): void => {
+export const createStorage = (useLocalStorage: boolean): void => {
   let authPluginId: string | null = LOCAL_STORAGE_EXISTS
     ? localStorage.getItem(SALEOR_AUTH_PLUGIN_ID)
     : null;
   let accessToken: string | null = null;
   let csrfToken: string | null =
-    autologinEnabled && LOCAL_STORAGE_EXISTS
+    useLocalStorage && LOCAL_STORAGE_EXISTS
       ? localStorage.getItem(SALEOR_CSRF_TOKEN)
       : null;
 
@@ -38,7 +38,7 @@ export const createStorage = (autologinEnabled: boolean): void => {
   };
 
   const setCSRFToken = (token: string | null): void => {
-    if (autologinEnabled && LOCAL_STORAGE_EXISTS) {
+    if (useLocalStorage && LOCAL_STORAGE_EXISTS) {
       if (token) {
         localStorage.setItem(SALEOR_CSRF_TOKEN, token);
       } else {
