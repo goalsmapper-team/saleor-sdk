@@ -226,6 +226,7 @@ export const auth = ({
       query: USER,
       data: {
         authenticating: false,
+        authenticated: false,
       },
     });
 
