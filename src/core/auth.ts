@@ -276,6 +276,7 @@ export const auth = ({
         },
         update: (_, { data }) => {
           if (data?.tokenRefresh?.token) {
+            console.log(data.tokenRefresh.token);
             storage.setAccessToken(data.tokenRefresh.token);
           } else {
             logout();
@@ -291,6 +292,7 @@ export const auth = ({
       },
       update: (_, { data }) => {
         if (data?.tokenRefresh?.token) {
+          console.log(data.tokenRefresh.token);
           storage.setAccessToken(data.tokenRefresh.token);
         } else {
           logout();

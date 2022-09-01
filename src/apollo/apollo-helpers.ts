@@ -2926,10 +2926,11 @@ export type ReducedRateFieldPolicy = {
 	rate?: FieldPolicy<any> | FieldReadFunction<any>,
 	rateType?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RefreshTokenKeySpecifier = ('token' | 'refreshToken' | 'user' | 'accountErrors' | 'errors' | RefreshTokenKeySpecifier)[];
+export type RefreshTokenKeySpecifier = ('token' | 'refreshToken' | 'csrfToken' | 'user' | 'accountErrors' | 'errors' | RefreshTokenKeySpecifier)[];
 export type RefreshTokenFieldPolicy = {
 	token?: FieldPolicy<any> | FieldReadFunction<any>,
 	refreshToken?: FieldPolicy<any> | FieldReadFunction<any>,
+	csrfToken?: FieldPolicy<any> | FieldReadFunction<any>,
 	user?: FieldPolicy<any> | FieldReadFunction<any>,
 	accountErrors?: FieldPolicy<any> | FieldReadFunction<any>,
 	errors?: FieldPolicy<any> | FieldReadFunction<any>

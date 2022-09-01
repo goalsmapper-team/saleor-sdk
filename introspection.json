@@ -59858,6 +59858,18 @@
             "deprecationReason": null
           },
           {
+            "name": "csrfToken",
+            "description": "CSRF token required to re-generate access token.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "user",
             "description": "A user instance.",
             "args": [],

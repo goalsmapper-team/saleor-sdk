@@ -9161,6 +9161,8 @@ export type RefreshToken = {
   token: Maybe<Scalars['String']>;
   /** JWT refresh token, required to re-generate access token. */
   refreshToken: Maybe<Scalars['String']>;
+  /** CSRF token required to re-generate access token. */
+  csrfToken: Maybe<Scalars['String']>;
   /** A user instance. */
   user: Maybe<User>;
   /** @deprecated Use errors field instead. This field will be removed in Saleor 4.0. */
@@ -11337,7 +11339,7 @@ export type RefreshTokenMutationVariables = Exact<{
 
 
 export type RefreshTokenMutation = { tokenRefresh: Maybe<(
-    Pick<RefreshToken, 'token' | 'refreshToken'>
+    Pick<RefreshToken, 'csrfToken' | 'token' | 'refreshToken'>
     & { errors: Array<AccountErrorFragment> }
   )> };
 
@@ -11347,7 +11349,7 @@ export type RefreshTokenWithUserMutationVariables = Exact<{
 
 
 export type RefreshTokenWithUserMutation = { tokenRefresh: Maybe<(
-    Pick<RefreshToken, 'token' | 'refreshToken'>
+    Pick<RefreshToken, 'csrfToken' | 'token' | 'refreshToken'>
     & { user: Maybe<UserDetailsFragment>, errors: Array<AccountErrorFragment> }
   )> };
 
