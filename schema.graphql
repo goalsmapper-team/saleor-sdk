@@ -3801,6 +3801,7 @@ type MerchantType implements Node {
   phone: String
   contactFirstName: String!
   contactLastName: String!
+  gmCoinEnabled: Boolean!
   shippingZones(
     before: String
     after: String
@@ -3910,6 +3911,7 @@ type Mutation {
   clientUpdate(id: ID, input: ClientInput): ClientUpdate
   clientDelete(ids: [ID]!): ClientDelete
   tokenCreate(email: String, password: String!): GoalsMapperLogin
+  tokenRefresh(csrfToken: String, refreshToken: String): RefreshToken
   updateClientEmail(clientId: ID!, email: String!): UpdateClientEmail
   deliveryZoneCreate(input: DeliveryZoneInput!): DeliveryZoneCreate
   merchantCreate(input: MerchantInput!): MerchantCreate
@@ -4406,7 +4408,6 @@ type Mutation {
   appActivate(id: ID!): AppActivate
   appDeactivate(id: ID!): AppDeactivate
   gmrTokenCreate(email: String!, password: String!): CreateToken
-  tokenRefresh(csrfToken: String, refreshToken: String): RefreshToken
   tokenVerify(token: String!): VerifyToken
   tokensDeactivateAll: DeactivateAllUserTokens
   externalAuthenticationUrl(
@@ -7185,6 +7186,7 @@ type ReducedRate {
 type RefreshToken {
   token: String
   user: User
+  refreshToken: String
   accountErrors: [AccountError!]!
     @deprecated(
       reason: "Use errors field instead. This field will be removed in Saleor 4.0."
