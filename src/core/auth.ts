@@ -277,7 +277,10 @@ export const auth = ({
         update: (_, { data }) => {
           if (data?.tokenRefresh?.token) {
             console.log(data.tokenRefresh.token);
-            storage.setAccessToken(data.tokenRefresh.token);
+            storage.setTokens({
+              accessToken: data.tokenRefresh.token,
+              csrfToken: data.tokenRefresh.csrfToken,
+            });
           } else {
             logout();
           }
@@ -293,7 +296,10 @@ export const auth = ({
       update: (_, { data }) => {
         if (data?.tokenRefresh?.token) {
           console.log(data.tokenRefresh.token);
-          storage.setAccessToken(data.tokenRefresh.token);
+          storage.setTokens({
+            accessToken: data.tokenRefresh.token,
+            csrfToken: data.tokenRefresh.csrfToken,
+          });
         } else {
           logout();
         }
