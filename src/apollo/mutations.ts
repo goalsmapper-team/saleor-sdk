@@ -31,6 +31,7 @@ export const LOGIN = gql`
     tokenCreate(email: $email, password: $password) {
       csrfToken
       token
+      refreshToken
       errors {
         ...AccountErrorFragment
       }
@@ -58,6 +59,7 @@ export const REFRESH_TOKEN = gql`
   mutation refreshToken($csrfToken: String!) {
     tokenRefresh(csrfToken: $csrfToken) {
       token
+      refreshToken
       errors {
         ...AccountErrorFragment
       }
@@ -73,6 +75,7 @@ export const REFRESH_TOKEN_WITH_USER = gql`
   mutation refreshTokenWithUser($csrfToken: String!) {
     tokenRefresh(csrfToken: $csrfToken) {
       token
+      refreshToken
       user {
         ...UserDetailsFragment
       }
